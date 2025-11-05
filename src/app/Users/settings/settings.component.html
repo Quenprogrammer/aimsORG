@@ -1,1 +1,346 @@
-<p>settings works!</p>
+<main class="content-wrapper">
+  <div class="container pt-4 pt-lg-5 pb-5">
+    <div class="row pt-sm-2 pt-md-3 pt-lg-0 pb-2 pb-sm-3 pb-md-4 pb-lg-5">
+
+      <!-- Sidebar navigation that turns into offcanvas on screens < 992px wide (lg breakpoint) -->
+      <aside class="col-lg-3">
+        <div class="d-none d-lg-block" style="margin-top: -105px"></div>
+        <div class="offcanvas-lg offcanvas-start sticky-lg-top pe-lg-0 pe-xl-4" id="accountSidebar">
+          <div class="d-none d-lg-block" style="padding-top: 105px"></div>
+
+          <!-- Header -->
+          <div class="offcanvas-header align-items-start d-lg-block py-3 p-lg-0">
+            <div class="d-flex align-items-start flex-lg-column gap-lg-3">
+              <!-- Visible on screens > 991px wide -->
+              <div class="ratio ratio-1x1 border rounded-circle overflow-hidden d-none d-lg-block" style="width: 86px">
+                <img src="assets/img/account/avatar.png" alt="Avatar">
+              </div>
+              <!-- Visible on screens < 992px wide -->
+              <div class="ratio ratio-1x1 border rounded-circle overflow-hidden flex-shrink-0 d-lg-none" style="width: 48px">
+                <img src="assets/img/account/avatar.png" alt="Avatar">
+              </div>
+              <div class="w-100 ps-2 ms-1 ms-lg-0 ps-lg-0">
+                <h4 class="h6 mb-1 mb-lg-2">Createx Studio</h4>
+                <p class="fs-sm mb-0">Digital products &amp; bespoke development</p>
+              </div>
+            </div>
+            <button type="button" class="btn-close d-lg-none mt-n2" data-bs-dismiss="offcanvas" data-bs-target="#accountSidebar" aria-label="Close"></button>
+          </div>
+
+          <!-- Body (Navigation) -->
+          <div class="offcanvas-body d-block pt-2 pt-lg-4 pb-lg-0">
+            <nav class="list-group list-group-borderless">
+              <a class="list-group-item list-group-item-action d-flex align-items-center rounded-pill" href="account-marketplace-dashboard.html">
+                <i class="ci-grid fs-base opacity-75 me-2"></i>
+                Dashboard
+              </a>
+              <a class="list-group-item list-group-item-action d-flex align-items-center rounded-pill" href="account-marketplace-products.html">
+                <i class="ci-layers fs-base opacity-75 me-2"></i>
+                Products (4)
+              </a>
+              <a class="list-group-item list-group-item-action d-flex align-items-center rounded-pill" href="account-marketplace-sales.html">
+                <i class="ci-pie-chart fs-base opacity-75 me-2"></i>
+                Sales
+              </a>
+              <a class="list-group-item list-group-item-action d-flex align-items-center rounded-pill" href="account-marketplace-payouts.html">
+                <i class="ci-dollar-sign fs-base opacity-75 me-2"></i>
+                Payouts
+              </a>
+            </nav>
+            <h6 class="pt-4 ps-2 ms-1">User account</h6>
+            <nav class="list-group list-group-borderless">
+              <a class="list-group-item list-group-item-action d-flex align-items-center rounded-pill" href="account-marketplace-purchases.html">
+                <i class="ci-shopping-bag fs-base opacity-75 me-2"></i>
+                Purchases (6)
+              </a>
+              <a class="list-group-item list-group-item-action d-flex align-items-center rounded-pill" href="account-marketplace-favorites.html">
+                <i class="ci-heart fs-base opacity-75 me-2"></i>
+                Favorites
+              </a>
+              <a class="list-group-item list-group-item-action d-flex align-items-center rounded-pill pe-none active" href="account-marketplace-settings.html">
+                <i class="ci-settings fs-base opacity-75 me-2"></i>
+                Settings
+              </a>
+              <a class="list-group-item list-group-item-action d-flex align-items-center rounded-pill" href="account-signin.html">
+                <i class="ci-log-out fs-base opacity-75 me-2"></i>
+                Log out
+              </a>
+            </nav>
+          </div>
+          <div class="offcanvas-header d-lg-block p-lg-0">
+            <button type="button" class="btn btn-dark rounded-pill w-100 animate-scale mt-lg-4">
+              <i class="ci-plus-circle fs-base animate-target me-2 ms-n1"></i>
+              Add product
+            </button>
+          </div>
+        </div>
+      </aside>
+
+
+      <!-- Account settings content -->
+      <div class="col-lg-9 pt-2 pt-xl-3">
+
+        <!-- Page title -->
+        <h1 class="h2 pb-1 pb-sm-2 pb-md-3">Settings</h1>
+
+        <!-- Nav tabs -->
+        <div class="overflow-auto mb-3">
+          <ul class="nav nav-pills flex-nowrap gap-2 text-nowrap pb-3" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button type="button" class="nav-link active" id="profile-tab" data-bs-toggle="pill" data-bs-target="#profile" role="tab" aria-controls="profile" aria-selected="true">
+                Profile
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button type="button" class="nav-link" id="security-tab" data-bs-toggle="pill" data-bs-target="#security" role="tab" aria-controls="security" aria-selected="false" tabindex="-1">
+                Security
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button type="button" class="nav-link" id="payment-tab" data-bs-toggle="pill" data-bs-target="#payment" role="tab" aria-controls="payment" aria-selected="false" tabindex="-1">
+                Payment methods
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button type="button" class="nav-link" id="notifications-tab" data-bs-toggle="pill" data-bs-target="#notifications" role="tab" aria-controls="notifications" aria-selected="false" tabindex="-1">
+                Notifications
+              </button>
+            </li>
+          </ul>
+        </div>
+
+
+        <!-- Tabs content -->
+        <div class="tab-content">
+
+          <!-- Profile tab -->
+          <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+            <!-- Avatar -->
+            <div class="d-flex align-items-start align-items-sm-center pb-3 mb-3">
+              <div class="ratio ratio-1x1 hover-effect-opacity border rounded-circle overflow-hidden" style="width: 112px">
+                <img src="assets/img/account/avatar-lg.png" alt="Avatar">
+                <div class="hover-effect-target position-absolute top-0 start-0 d-flex align-items-center justify-content-center w-100 h-100 opacity-0">
+                  <button type="button" class="btn btn-icon btn-sm btn-light position-relative z-2" aria-label="Remove">
+                    <i class="ci-trash fs-base"></i>
+                  </button>
+                  <span class="position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-25 z-1"></span>
+                </div>
+              </div>
+              <div class="ps-3 ps-sm-4">
+                <p class="fs-sm" style="max-width: 400px">Your profile picture will appear on your profile and listings. PNG or JPG no bigger than 500px wide and tall.</p>
+                <button type="button" class="btn btn-sm btn-secondary animate-rotate rounded-pill">
+                  <i class="ci-refresh-ccw animate-target fs-sm ms-n1 me-2"></i>
+                  Update picture
+                </button>
+              </div>
+            </div>
+
+            <!-- Settings form -->
+            <form class="needs-validation" novalidate="">
+              <div class="row row-cols-1 row-cols-sm-2 g-4 mb-4">
+                <div class="col position-relative">
+                  <label for="fn" class="form-label fs-base">First name *</label>
+                  <input type="text" class="form-control form-control-lg rounded-pill" id="fn" value="Createx" required="">
+                  <div class="invalid-tooltip bg-transparent p-0">Enter your first name!</div>
+                </div>
+                <div class="col position-relative">
+                  <label for="ln" class="form-label fs-base">Last name *</label>
+                  <input type="text" class="form-control form-control-lg rounded-pill" id="ln" value="Studio" required="">
+                  <div class="invalid-tooltip bg-transparent p-0">Enter your last name!</div>
+                </div>
+                <div class="col position-relative">
+                  <label for="email" class="form-label d-flex align-items-center fs-base">Email address * <span class="badge text-danger bg-danger-subtle ms-2">Verify email</span></label>
+                  <input type="email" class="form-control form-control-lg rounded-pill" id="email" value="contact@createx.studio" required="">
+                  <div class="invalid-tooltip bg-transparent p-0">Enter a valid email address!</div>
+                </div>
+                <div class="col">
+                  <label for="display-name" class="form-label fs-base">Display name</label>
+                  <input type="text" class="form-control form-control-lg form-icon-end rounded-pill" id="display-name" value="Createx Studio">
+                </div>
+              </div>
+              <div class="pb-2 mb-3 mb-sm-4">
+                <label for="description" class="form-label fs-base">Description</label>
+                <textarea class="form-control form-control-lg rounded-5" id="description" rows="6">Digital products &amp; bespoke development</textarea>
+              </div>
+              <div class="pb-2 mb-4">
+                <div class="form-check fs-lg m-0">
+                  <input type="checkbox" class="form-check-input" id="allow-contact">
+                  <label for="allow-contact" class="form-check-label fs-base">Allow other users to contact you with work inquiries.</label>
+                </div>
+              </div>
+              <div class="d-flex gap-3">
+                <button type="submit" class="btn btn-lg btn-primary rounded-pill">Save changes</button>
+                <button type="reset" class="btn btn-lg btn-secondary rounded-pill">Cancel</button>
+              </div>
+            </form>
+          </div>
+
+
+          <!-- Security tab -->
+          <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
+
+            <!-- Change password form -->
+            <form class="needs-validation" novalidate="">
+              <div class="row row-cols-1 row-cols-sm-2 g-4 mb-4">
+                <div class="col">
+                  <label for="current-password" class="form-label fs-base">Current password</label>
+                  <div class="password-toggle">
+                    <input type="password" class="form-control form-control-lg rounded-pill" id="current-password" required="">
+                    <div class="invalid-tooltip bg-transparent p-0">Incorrect password. Please try again.</div>
+                    <label class="password-toggle-button" aria-label="Show/hide password">
+                      <input type="checkbox" class="btn-check">
+                      <span class="password-toggle-button-icon d-flex">
+      <svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M23.8 11.6c-.1-.1-.1-.3-.2-.4-.8-1.4-1.7-2.7-2.8-3.8-1.9-2.1-4.9-4.3-8.8-4.3S5.2 5.3 3.2 7.4c-1.1 1.2-2 2.4-2.8 3.8-.1.1-.1.2-.2.4s-.1.5 0 .8v.1c.2.4.5.8.7 1.2.7 1 1.4 2 2.2 2.9 1.9 2.1 4.9 4.3 8.8 4.3 3.9 0 6.8-2.2 8.8-4.3 1.1-1.2 2-2.4 2.8-3.8.1-.1.1-.2.2-.4.2-.3.2-.6.1-.8zm-4.3 3.8c-1.8 1.9-4.3 3.7-7.5 3.7s-5.7-1.8-7.5-3.7c-1-1-1.8-2.2-2.5-3.4.7-1.2 1.5-2.4 2.5-3.4C6.3 6.7 8.8 4.9 12 4.9s5.7 1.8 7.5 3.7c1 1 1.8 2.2 2.5 3.4-.7 1.2-1.5 2.4-2.5 3.4z"></path><path d="M12 8.1c-2.2 0-3.9 1.8-3.9 3.9s1.7 3.9 3.9 3.9 3.9-1.7 3.9-3.9-1.7-3.9-3.9-3.9zm0 6c-1.1 0-2.1-1-2.1-2.1s.9-2.1 2.1-2.1 2.1 1 2.1 2.1-1 2.1-2.1 2.1z"></path>
+      </svg>
+    </span></label>
+                  </div>
+                </div>
+              </div>
+              <div class="row row-cols-1 row-cols-sm-2 g-4 mb-4">
+                <div class="col">
+                  <label for="new-password" class="form-label fs-base">New password <span class="fs-sm fw-normal text-body-secondary">(Min 8 chars)</span></label>
+                  <div class="password-toggle">
+                    <input type="password" class="form-control form-control-lg rounded-pill" minlength="8" id="new-password" required="">
+                    <div class="invalid-tooltip bg-transparent p-0">Please ensure password is at least 8 characters long.</div>
+                    <label class="password-toggle-button" aria-label="Show/hide password">
+                      <input type="checkbox" class="btn-check">
+                      <span class="password-toggle-button-icon d-flex">
+      <svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M23.8 11.6c-.1-.1-.1-.3-.2-.4-.8-1.4-1.7-2.7-2.8-3.8-1.9-2.1-4.9-4.3-8.8-4.3S5.2 5.3 3.2 7.4c-1.1 1.2-2 2.4-2.8 3.8-.1.1-.1.2-.2.4s-.1.5 0 .8v.1c.2.4.5.8.7 1.2.7 1 1.4 2 2.2 2.9 1.9 2.1 4.9 4.3 8.8 4.3 3.9 0 6.8-2.2 8.8-4.3 1.1-1.2 2-2.4 2.8-3.8.1-.1.1-.2.2-.4.2-.3.2-.6.1-.8zm-4.3 3.8c-1.8 1.9-4.3 3.7-7.5 3.7s-5.7-1.8-7.5-3.7c-1-1-1.8-2.2-2.5-3.4.7-1.2 1.5-2.4 2.5-3.4C6.3 6.7 8.8 4.9 12 4.9s5.7 1.8 7.5 3.7c1 1 1.8 2.2 2.5 3.4-.7 1.2-1.5 2.4-2.5 3.4z"></path><path d="M12 8.1c-2.2 0-3.9 1.8-3.9 3.9s1.7 3.9 3.9 3.9 3.9-1.7 3.9-3.9-1.7-3.9-3.9-3.9zm0 6c-1.1 0-2.1-1-2.1-2.1s.9-2.1 2.1-2.1 2.1 1 2.1 2.1-1 2.1-2.1 2.1z"></path>
+      </svg>
+    </span></label>
+                  </div>
+                </div>
+                <div class="col">
+                  <label for="confirm-new-password" class="form-label fs-base">Confirm new password</label>
+                  <div class="password-toggle">
+                    <input type="password" class="form-control form-control-lg rounded-pill" minlength="8" id="confirm-new-password" required="">
+                    <div class="invalid-tooltip bg-transparent p-0">Passwords do not match.</div>
+                    <label class="password-toggle-button" aria-label="Show/hide password">
+                      <input type="checkbox" class="btn-check">
+                      <span class="password-toggle-button-icon d-flex">
+      <svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M23.8 11.6c-.1-.1-.1-.3-.2-.4-.8-1.4-1.7-2.7-2.8-3.8-1.9-2.1-4.9-4.3-8.8-4.3S5.2 5.3 3.2 7.4c-1.1 1.2-2 2.4-2.8 3.8-.1.1-.1.2-.2.4s-.1.5 0 .8v.1c.2.4.5.8.7 1.2.7 1 1.4 2 2.2 2.9 1.9 2.1 4.9 4.3 8.8 4.3 3.9 0 6.8-2.2 8.8-4.3 1.1-1.2 2-2.4 2.8-3.8.1-.1.1-.2.2-.4.2-.3.2-.6.1-.8zm-4.3 3.8c-1.8 1.9-4.3 3.7-7.5 3.7s-5.7-1.8-7.5-3.7c-1-1-1.8-2.2-2.5-3.4.7-1.2 1.5-2.4 2.5-3.4C6.3 6.7 8.8 4.9 12 4.9s5.7 1.8 7.5 3.7c1 1 1.8 2.2 2.5 3.4-.7 1.2-1.5 2.4-2.5 3.4z"></path><path d="M12 8.1c-2.2 0-3.9 1.8-3.9 3.9s1.7 3.9 3.9 3.9 3.9-1.7 3.9-3.9-1.7-3.9-3.9-3.9zm0 6c-1.1 0-2.1-1-2.1-2.1s.9-2.1 2.1-2.1 2.1 1 2.1 2.1-1 2.1-2.1 2.1z"></path>
+      </svg>
+    </span></label>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex gap-3">
+                <button type="submit" class="btn btn-lg btn-primary rounded-pill">Update password</button>
+                <button type="reset" class="btn btn-lg btn-secondary rounded-pill">Cancel</button>
+              </div>
+            </form>
+
+            <!-- Delete account -->
+            <h2 class="h6 pt-5 mt-xl-2 pb-1 mb-2">Delete account</h2>
+            <p class="fs-sm">When you delete your account, your public profile will be deactivated immediately. If you change your mind before the 14 days are up, sign in with your email and password, and we'll send a link to reactivate account.</p>
+            <div class="form-check mb-3">
+              <input type="checkbox" class="form-check-input" id="confirm-deletion">
+              <label for="confirm-deletion" class="form-check-label">Yes, I want to delete my account</label>
+            </div>
+            <a class="fs-sm fw-medium text-danger" href="#!">Delete account</a>
+          </div>
+
+
+          <!-- Payment methods tab -->
+          <div class="tab-pane fade" id="payment" role="tabpanel" aria-labelledby="payment-tab">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 g-md-4 g-lg-3 g-xl-4">
+              <div class="col">
+                <div class="card h-100 rounded-4">
+                  <div class="card-body pb-3">
+                    <div class="d-flex align-items-start justify-content-between mb-4">
+                      <img src="assets/img/payment-methods/mastercard.svg" class="m-n3" width="100" alt="Mastercard">
+                      <span class="badge text-bg-info rounded-pill">Primary</span>
+                    </div>
+                    <div class="h6 mb-1">**** **** **** 8341</div>
+                    <div class="text-danger fs-xs">Expired 05/24</div>
+                  </div>
+                  <div class="card-footer d-flex gap-2 bg-transparent border-0 pt-0 pb-4">
+                    <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill me-1">Edit</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill">Remove</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100 rounded-4">
+                  <div class="card-body pb-3">
+                    <div class="d-flex align-items-start justify-content-between mb-4">
+                      <img src="assets/img/payment-methods/visa-light-mode.svg" class="d-none-dark m-n3" width="100" alt="Visa">
+                      <img src="assets/img/payment-methods/visa-dark-mode.svg" class="d-none d-block-dark m-n3" width="100" alt="Visa">
+                      <div class="nav animate-underline">
+                        <a class="nav-link animate-target fs-xs p-0" href="#!">Set as primary</a>
+                      </div>
+                    </div>
+                    <div class="h6 mb-1">**** **** **** 1276</div>
+                    <div class="text-body fs-xs">Expiration 01/27</div>
+                  </div>
+                  <div class="card-footer d-flex gap-2 bg-transparent border-0 pt-0 pb-4">
+                    <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill me-1">Edit</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill">Remove</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card border-0 h-100">
+                  <span class="position-absolute top-0 start-0 w-100 h-100 border border-dashed border-secondary border-opacity-25 rounded-4 d-none-dark"></span>
+                  <span class="position-absolute top-0 start-0 w-100 h-100 border border-dashed border-light border-opacity-25 rounded-4 d-none d-block-dark"></span>
+                  <div class="card-body position-relative z-2 nav align-items-center justify-content-center py-5">
+                    <a class="nav-link animate-underline stretched-link min-w-0 fs-base px-0" href="#addPaymentModal" data-bs-toggle="modal">
+                      <i class="ci-plus fs-lg ms-n2 me-2"></i>
+                      <span class="animate-target text-truncate">Add payment method</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Notifications tab -->
+          <div class="tab-pane fade" id="notifications" role="tabpanel" aria-labelledby="notifications-tab">
+            <div class="vstack gap-4 pt-sm-1">
+              <div class="form-check form-switch mb-0">
+                <input type="checkbox" class="form-check-input" id="product-sold" checked="">
+                <label class="form-check-label ps-2" for="product-sold">
+                  <span class="d-block h6 mb-2">Product sold notifications</span>
+                  <span class="fs-sm">Send an email when someone purchased one of my product.</span>
+                </label>
+              </div>
+              <div class="form-check form-switch mb-0">
+                <input type="checkbox" class="form-check-input" id="product-update" checked="">
+                <label class="form-check-label ps-2" for="product-update">
+                  <span class="d-block h6 mb-2">Product update notifications</span>
+                  <span class="fs-sm">Send an email when a product I've purchased is updated.</span>
+                </label>
+              </div>
+              <div class="form-check form-switch mb-0">
+                <input type="checkbox" class="form-check-input" id="surveys">
+                <label class="form-check-label ps-2" for="surveys">
+                  <span class="d-block h6 mb-2">Surveys and tests</span>
+                  <span class="fs-sm">Receive invitations to participate in surveys, consultations, and tool testing.</span>
+                </label>
+              </div>
+              <div class="form-check form-switch mb-0">
+                <input type="checkbox" class="form-check-input" id="product-review" checked="">
+                <label class="form-check-label ps-2" for="product-review">
+                  <span class="d-block h6 mb-2">Product review notifications</span>
+                  <span class="fs-sm">Company news and cooperation offers.</span>
+                </label>
+              </div>
+              <div class="form-check form-switch mb-0">
+                <input type="checkbox" class="form-check-input" id="daily-summary">
+                <label class="form-check-label ps-2" for="daily-summary">
+                  <span class="d-block h6 mb-2">Daily summary emails</span>
+                  <span class="fs-sm">Send an email when someone leaves a review with his/her rating.</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
