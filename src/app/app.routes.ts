@@ -10,6 +10,8 @@ import { PaymentComponent } from './Vendor/payment/payment.component';
 import { MessageComponent } from './Vendor/message/message.component';
 import { TermsComponent } from './Vendor/terms/terms.component';
 import { PolicyComponent } from './Vendor/policy/policy.component';
+import { DeliveryComponent } from './Vendor/delivery/delivery.component';
+
 
 // ==================== Users Components ====================
 import { ProfileComponent } from './Users/profile/profile.component';
@@ -34,6 +36,7 @@ import { MarketComponent } from './Categories/market/market.component';
 import { CreateAccountComponent } from './Accounts/create-account/create-account.component';
 import { RegisterVendorsComponent } from './Accounts/register-vendors/register-vendors.component';
 import { KycComponent } from './Accounts/kyc/kyc.component';
+import {ThankYouComponent} from './Vendor/thank-you/thank-you.component';
 
 export const routes: Routes = [
   // Homepage
@@ -50,6 +53,8 @@ export const routes: Routes = [
   { path: 'vendor/message', component: MessageComponent },
   { path: 'vendor/terms', component: TermsComponent },
   { path: 'vendor/policy', component: PolicyComponent },
+  { path: 'vendor/delivery', component: DeliveryComponent },
+  { path: 'vendor/thank you', component: ThankYouComponent },
 
   // Users routes
   { path: 'users/profile', component: ProfileComponent },

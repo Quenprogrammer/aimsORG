@@ -1,19 +1,18 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {NgIf, NgFor, NgClass} from '@angular/common';
+import { NgFor, NgIf, NgClass } from '@angular/common';
 
 @Component({
-  selector: 'app-payment',
+  selector: 'app-delivery',
   standalone: true,
-  imports: [FormsModule, NgIf, NgFor, NgClass],
-  templateUrl: './payment.component.html',
+  imports: [FormsModule, NgFor, NgIf, NgClass],
+  templateUrl: './delivery.component.html'
 })
-export class PaymentComponent {
-  // For postcode form
+export class DeliveryComponent {
+  // ===================== POSTCODE FORM =====================
   postcode: string = '';
   submitted = false;
 
-  // Submit postcode form
   submitPostcode() {
     if (this.postcode.trim() !== '') {
       console.log('Postcode submitted:', this.postcode);
@@ -24,30 +23,27 @@ export class PaymentComponent {
     }
   }
 
-  // Order summary data
+  // ===================== ORDER SUMMARY DATA =====================
   orderSummary = {
     title: 'Order summary',
-    editLink: '#',
-    orderPreviewLink: '#',
+    editLink: 'checkout-v1-delivery-2.html',
+    previewLink: '#orderPreview',
     images: [
       { src: 'assets/img/shop/electronics/thumbs/08.png', alt: 'iPhone' },
       { src: 'assets/img/shop/electronics/thumbs/09.png', alt: 'iPad Pro' },
       { src: 'assets/img/shop/electronics/thumbs/01.png', alt: 'Smart Watch' }
-    ],
+    ]
   };
 
-  // Summary items
   summaryItems = [
-    { label: 'Subtotal (3 items):', value: '$2,427.00' },
-    { label: 'Saving:', value: '-$110.00' },
-    { label: 'Tax collected:', value: '$73.40' },
-    { label: 'Shipping:', value: 'Calculated at checkout' }
+    { label: 'Subtotal (3 items):', value: '$2,427.00', type: 'normal' },
+    { label: 'Saving:', value: '-$110.00', type: 'danger' },
+    { label: 'Tax collected:', value: '$73.40', type: 'normal' },
+    { label: 'Shipping:', value: 'Calculated at checkout', type: 'normal' }
   ];
 
-  // Estimated total
   estimatedTotal = '$2,390.40';
 
-  // Bonus message
   bonus = {
     message: 'Congratulations! You have earned',
     points: 239
