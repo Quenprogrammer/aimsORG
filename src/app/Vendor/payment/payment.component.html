@@ -191,45 +191,53 @@
         </div>
 
         <!-- RIGHT SIDE: Order Summary -->
-        <div class="col-lg-4 col-xl-5">
-          <div class="card border-0 shadow-sm">
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h5 class="mb-0">{{ orderSummary.title }}</h5>
-                <a [href]="orderSummary.editLink" class="fs-sm">Edit</a>
-              </div>
+        <div class="container-fluid">
+          <div class="row">
+            <!-- Push content to the right -->
+            <div class="col-lg-4 col-xl-5 ms-auto">
+              <div class="card border-0 shadow-sm mt-0">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0">{{ orderSummary.title }}</h5>
+                    <a [href]="orderSummary.editLink" class="fs-sm">Edit</a>
+                  </div>
 
-              <!-- Product thumbnails -->
-              <div class="d-flex mb-3">
-                <img *ngFor="let img of orderSummary.images"
-                     [src]="img.src"
-                     [alt]="img.alt"
-                     class="rounded me-2"
-                     style="width: 48px; height: 48px;">
-              </div>
+                  <!-- Product thumbnails -->
+                  <div class="d-flex mb-3">
+                    <img *ngFor="let img of orderSummary.images"
+                         [src]="img.src"
+                         [alt]="img.alt"
+                         class="rounded me-2"
+                         style="width: 48px; height: 48px;">
+                  </div>
 
-              <!-- Summary items -->
-              <ul class="list-unstyled mb-3">
-                <li *ngFor="let item of summaryItems"
-                    class="d-flex justify-content-between">
-                  <span>{{ item.label }}</span>
-                  <span>{{ item.value }}</span>
-                </li>
-              </ul>
+                  <!-- Summary items -->
+                  <ul class="list-unstyled mb-3">
+                    <li *ngFor="let item of summaryItems"
+                        class="d-flex justify-content-between">
+                      <span>{{ item.label }}</span>
+                      <span>{{ item.value }}</span>
+                    </li>
+                  </ul>
 
-              <!-- Total -->
-              <div class="border-top pt-2 d-flex justify-content-between fw-bold">
-                <span>Estimated total:</span>
-                <span>{{ estimatedTotal }}</span>
-              </div>
+                  <!-- Total -->
+                  <div class="border-top pt-2 d-flex justify-content-between fw-bold">
+                    <span>Estimated total:</span>
+                    <span>{{ estimatedTotal }}</span>
+                  </div>
 
-              <!-- Bonus Message -->
-              <div class="alert alert-success mt-3 text-center">
-                {{ bonus.message }} <strong>{{ bonus.points }}</strong> points 🎉
+                  <!-- Bonus Message -->
+                  <div class="alert alert-success mt-3 text-center">
+                    {{ bonus.message }} <strong>{{ bonus.points }}</strong> points 🎉
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+
+
       </div>
     </div>
   </div>
