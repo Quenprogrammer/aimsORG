@@ -28,6 +28,7 @@ import { TagComponent } from './App/tag/tag.component';
 import {AboutComponent} from './App/about/about.component';
 import {BlogComponent} from './App/blog/blog.component';
 import {ContactComponent} from './App/contact/contact.component';
+import {ShoppingComponent} from './App/shopping/shopping.component';
 
 // ==================== Categories Components ====================
 import { FashionComponent } from './Categories/fashion/fashion.component';
@@ -44,6 +45,7 @@ import { KycComponent } from './Accounts/kyc/kyc.component';
 
 
 
+
 export const routes: Routes = [
   // Homepage
   { path: '', redirectTo: 'homepage', pathMatch: 'full' },
@@ -51,6 +53,7 @@ export const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'blog', component: BlogComponent},
   { path: 'contact-us', component: ContactComponent},
+  { path: 'shopping', component: ShoppingComponent},
 
   // Vendor routes
   { path: 'vendor/dashboard', component: VendorDashboardComponent },
