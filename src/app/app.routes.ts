@@ -37,11 +37,13 @@ import { CreateAccountComponent } from './Accounts/create-account/create-account
 import { RegisterVendorsComponent } from './Accounts/register-vendors/register-vendors.component';
 import { KycComponent } from './Accounts/kyc/kyc.component';
 import {ThankYouComponent} from './Vendor/thank-you/thank-you.component';
+import {Bog} from './App/bog/bog';
 
 export const routes: Routes = [
   // Homepage
   { path: '', redirectTo: 'homepage', pathMatch: 'full' },
   { path: 'homepage', component: HomepageComponent },
+  { path: 'blog', component: Bog},
 
   // Vendor routes
   { path: 'vendor/dashboard', component: VendorDashboardComponent },

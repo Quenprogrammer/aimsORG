@@ -1,0 +1,37 @@
+<div class="row vh-100"><div class="row vh-100">
+  <!-- Sidebar -->
+  <aside class="col-lg-3 d-flex flex-column justify-content-start align-items-start border-end p-3">
+    <nav class="list-group list-group-flush w-100">
+      <a *ngFor="let section of sections"
+         class="list-group-item list-group-item-action rounded-pill mb-1"
+         [class.active]="activeSection === section.value"
+         (click)="openSection(section.value)">
+        {{ section.label }}
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Content -->
+  <div class="col-lg-9 d-flex justify-content-center align-items-start p-4">
+    <div class="w-100">
+      <div *ngFor="let section of sections; let i = index">
+        <div *ngIf="activeSection === section.value">
+          <h1 class="h2 text-start">{{ section.label }}</h1>
+          <p class="text-center mb-4">This is editable content for {{ section.label }}. You can change it easily in the component.</p>
+
+          <!-- FAQs -->
+          <div *ngFor="let faq of section.faqs; let j = index" class="mb-2">
+            <button class="btn btn-outline-primary w-100 text-start"
+                    (click)="toggleFAQ(i, j)">
+              {{ faq.question }}
+            </button>
+            <div *ngIf="faq.open" class="border rounded p-2 mt-1">
+              {{ faq.answer }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
