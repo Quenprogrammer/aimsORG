@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {NgForOf, NgIf} from '@angular/common';
 interface FAQ {
   question: string;
   answer: string;
@@ -13,7 +14,10 @@ interface Section {
 
 @Component({
   selector: 'app-faq',
-  imports: [],
+  imports: [
+    NgForOf,
+    NgIf
+  ],
   templateUrl: './faq.html',
   styleUrl: './faq.css',
 })

@@ -38,6 +38,12 @@ import { RegisterVendorsComponent } from './Accounts/register-vendors/register-v
 import { KycComponent } from './Accounts/kyc/kyc.component';
 import {ThankYouComponent} from './Vendor/thank-you/thank-you.component';
 import {Bog} from './App/bog/bog';
+import {Users} from './samuel/admin/users';
+import {Inbox} from './samuel/admin/inbox';
+import { Events } from './samuel/events/events';
+import {Unit} from './samuel/admin/unit';
+import { Post } from '../app/samuel/admin/post/post';
+import {UploadPost} from './samuel/admin/post/upload-post';
 
 export const routes: Routes = [
   // Homepage
@@ -80,6 +86,12 @@ export const routes: Routes = [
   { path: 'accounts/create-account', component: CreateAccountComponent },
   { path: 'accounts/register-vendors', component: RegisterVendorsComponent },
   { path: 'accounts/kyc', component: KycComponent },
+  {path: 'adminUsers', loadComponent: () => import('../app/samuel/admin/users').then(c => Users)},
+  {path: 'adminInbox', loadComponent: () => import('../app/samuel/admin/inbox').then(c => Inbox)},
+  {path: 'adminEvents', loadComponent: () => import('../app/samuel/admin/events').then(c => Events)},
+  {path: 'adminUnit', loadComponent: () => import('../app/samuel/admin/users').then(c => Unit)},
+  {path: 'adminPost', loadComponent: () => import('../app/samuel/admin/post/post').then(c => Post)},
+  {path: 'adminPostUpload', loadComponent: () => import('../app/samuel/admin/post/post').then(c => UploadPost)},
 
   // Fallback
   { path: '**', redirectTo: 'homepage' }

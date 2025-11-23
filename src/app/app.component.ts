@@ -6,9 +6,9 @@ import { RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [RouterOutlet],
   template: `
-    <div class="container mt-3">
+
       <router-outlet></router-outlet>
-    </div>
+
   `,
   styles: [`
     .container {
