@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import {NgForOf, NgIf} from '@angular/common';
 
+
+
+
 interface FAQ {
   question: string;
   answer: string;
@@ -282,18 +285,7 @@ export class ShoppingComponent {
             'Note: Once you submit your request, your account cannot be reactivated..', open: false },
       ]
     },
-    /*{
-      label: 'Section 10',
-      value: 'section10',
-      faqs: [
-        { question: 'Q1: How to do task 1?', answer: 'Answer 1 for Section 10.', open: false },
-        { question: 'Q2: How to do task 2?', answer: 'Answer 2 for Section 10.', open: false },
-        { question: 'Q3: How to do task 3?', answer: 'Answer 3 for Section 10.', open: false },
-        { question: 'Q4: How to do task 4?', answer: 'Answer 4 for Section 10.', open: false },
-      ]
 
-
-    },*/
 
   ];
 
@@ -305,3 +297,10 @@ export class ShoppingComponent {
     this.sections[sectionIndex].faqs[faqIndex].open = !this.sections[sectionIndex].faqs[faqIndex].open;
   }
 }
+
+
+
+
+
+
+

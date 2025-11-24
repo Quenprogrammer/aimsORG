@@ -1,3 +1,70 @@
+<!--
+&lt;!&ndash; FEATURED POSTS &ndash;&gt;
+<section class="featured-posts">
+  <div *ngFor="let post of featuredPosts" class="featured-card">
+    <img [src]="post.img" alt="" class="featured-img" />
+    <div class="featured-content">
+      <span class="category">{{ post.category }}</span>
+      <h2>{{ post.title }}</h2>
+      <p class="date">{{ post.date }}</p>
+      <a [href]="post.link">Read more</a>
+    </div>
+  </div>
+</section>
+
+
+&lt;!&ndash; SIDE FEATURED &ndash;&gt;
+<section class="side-featured">
+  <div *ngFor="let post of sideFeatured" class="side-item">
+    <img [src]="post.img" alt="" />
+    <div>
+      <h4>{{ post.title }}</h4>
+      <p>{{ post.date }}</p>
+      <a [href]="post.link">Read more</a>
+    </div>
+  </div>
+</section>
+
+
+&lt;!&ndash; GRID POSTS 1 &ndash;&gt;
+<section class="grid-posts-1">
+  <div class="grid">
+    <div *ngFor="let post of gridPosts1" class="grid-card">
+      <img [src]="post.img" alt="" />
+      <span class="category">{{ post.category }}</span>
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.date }}</p>
+      <a [href]="post.link">Read more</a>
+    </div>
+  </div>
+</section>
+
+
+&lt;!&ndash; GRID POSTS 2 &ndash;&gt;
+<section class="grid-posts-2">
+  <div class="grid">
+    <div *ngFor="let post of gridPosts2" class="grid-card">
+      <img [src]="post.img" alt="" />
+      <span class="category">{{ post.category }}</span>
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.date }}</p>
+      <a [href]="post.link">Read more</a>
+    </div>
+  </div>
+</section>
+
+
+&lt;!&ndash; TRENDING POSTS &ndash;&gt;
+<section class="trending-posts">
+  <h3>Trending</h3>
+  <ul>
+    <li *ngFor="let post of trendingPosts">
+      <img [src]="post.img" alt="" />
+      <span>{{ post.title }}</span>
+    </li>
+  </ul>
+</section>
+-->
 <main class="content-wrapper">
 
   <!-- Breadcrumb -->
@@ -18,9 +85,9 @@
     <div class="row gy-5 pb-5">
 
       <!-- Article -->
-      <article class="col-md-6">
-        <a class="ratio d-flex hover-effect-scale rounded-4 overflow-hidden" href="blog-single-v1.html" style="--cz-aspect-ratio: calc(500 / 636 * 100%)">
-          <img src="assets/img/blog/list/01.jpg" class="hover-effect-target" alt="Image">
+      <article class="col-md-6 col-lg-7">
+        <a class="ratio d-flex hover-effect-scale rounded-4 overflow-hidden" href="blog-single-v1.html" style="--cz-aspect-ratio: calc(484 / 746 * 100%)">
+          <img src="assets/img/blog/grid/v1/01.jpg" class="hover-effect-target" alt="Image">
         </a>
         <div class="pt-4">
           <div class="nav align-items-center gap-2 pb-2 mt-n1 mb-1">
@@ -33,154 +100,161 @@
           </h3>
         </div>
       </article>
-      <div class="col-md-6">
-        <div class="row row-cols-1 row-cols-sm-2 gy-5">
 
-          <!-- Article -->
-          <article class="col">
-            <a class="ratio ratio-1x1 d-flex hover-effect-scale rounded overflow-hidden" href="blog-single-v1.html">
-              <img src="assets/img/blog/list/02.jpg" class="hover-effect-target" alt="Image">
-            </a>
-            <div class="pt-4">
-              <div class="nav align-items-center gap-2 pb-2 mt-n1 mb-1">
-                <a class="nav-link text-body fs-xs text-uppercase p-0" href="#!">Tech news</a>
-                <hr class="vr my-1 mx-1">
-                <span class="text-body-tertiary fs-xs">October 10, 2024</span>
-              </div>
-              <h3 class="h5 mb-0">
-                <a class="hover-effect-underline" href="blog-single-v1.html">News and views on the latest electronic products</a>
-              </h3>
-            </div>
-          </article>
+      <!-- Side list -->
+      <div class="col-md-6 col-lg-5 d-flex flex-column align-content-between gap-4">
 
-          <!-- Article -->
-          <article class="col">
-            <a class="ratio ratio-1x1 d-flex hover-effect-scale rounded overflow-hidden" href="blog-single-v1.html">
-              <img src="assets/img/blog/list/03.jpg" class="hover-effect-target" alt="Image">
-            </a>
-            <div class="pt-4">
-              <div class="nav align-items-center gap-2 pb-2 mt-n1 mb-1">
-                <a class="nav-link text-body fs-xs text-uppercase p-0" href="#!">IoT</a>
-                <hr class="vr my-1 mx-1">
-                <span class="text-body-tertiary fs-xs">September 17, 2024</span>
-              </div>
-              <h3 class="h5 mb-0">
-                <a class="hover-effect-underline" href="blog-single-v1.html">Transform your home into a smart hub with the latest IoT</a>
-              </h3>
-            </div>
-          </article>
-        </div>
+        <!-- Article -->
+        <article class="hover-effect-scale position-relative d-flex align-items-center ps-xl-4 mb-xl-1">
+          <div class="w-100 pe-3 pe-sm-4 pe-lg-3 pe-xl-4">
+            <div class="text-body-tertiary fs-xs pb-2 mb-1">October 10, 2024</div>
+            <h3 class="h6 mb-2">
+              <a class="hover-effect-underline stretched-link" href="blog-single-v1.html">Digital digest: News and views on the latest electronic products</a>
+            </h3>
+          </div>
+          <div class="ratio w-100 rounded overflow-hidden" style="max-width: 196px; --cz-aspect-ratio: calc(140 / 196 * 100%)">
+            <img src="assets/img/blog/grid/v1/02.jpg" class="hover-effect-target" alt="Image">
+          </div>
+        </article>
+
+        <!-- Article -->
+        <article class="hover-effect-scale position-relative d-flex align-items-center ps-xl-4 mb-xl-1">
+          <div class="w-100 pe-3 pe-sm-4 pe-lg-3 pe-xl-4">
+            <div class="text-body-tertiary fs-xs pb-2 mb-1">September 29, 2024</div>
+            <h3 class="h6 mb-2">
+              <a class="hover-effect-underline stretched-link" href="blog-single-v1.html">Embracing connections: How modern technology bridges gaps and builds communities</a>
+            </h3>
+          </div>
+          <div class="ratio w-100 rounded overflow-hidden" style="max-width: 196px; --cz-aspect-ratio: calc(140 / 196 * 100%)">
+            <img src="assets/img/blog/grid/v1/03.jpg" class="hover-effect-target" alt="Image">
+          </div>
+        </article>
+
+        <!-- Article -->
+        <article class="hover-effect-scale position-relative d-flex align-items-center ps-xl-4 mb-xl-1">
+          <div class="w-100 pe-3 pe-sm-4 pe-lg-3 pe-xl-4">
+            <div class="text-body-tertiary fs-xs pb-2 mb-1">September 17, 2024</div>
+            <h3 class="h6 mb-2">
+              <a class="hover-effect-underline stretched-link" href="blog-single-v1.html">Transform your home into a smart hub with the latest IoT</a>
+            </h3>
+          </div>
+          <div class="ratio w-100 rounded overflow-hidden" style="max-width: 196px; --cz-aspect-ratio: calc(140 / 196 * 100%)">
+            <img src="assets/img/blog/grid/v1/04.jpg" class="hover-effect-target" alt="Image">
+          </div>
+        </article>
       </div>
     </div>
     <hr class="my-0 my-md-2 my-lg-4">
   </section>
 
 
-  <!-- Posts list + Sidebar -->
+  <!-- Posts grid + Sidebar -->
   <section class="container pb-5 mb-2 mb-md-3 mb-lg-4 mb-xl-5">
     <div class="row">
 
-      <!-- Posts list -->
+      <!-- Posts grid -->
       <div class="col-lg-8">
-        <div class="d-flex flex-column gap-4 mt-n3">
+        <div class="row row-cols-1 row-cols-sm-2 gy-5">
 
           <!-- Article -->
-          <article class="row align-items-start align-items-md-center gx-0 gy-4 pt-3">
-            <div class="col-sm-5 pe-sm-4">
-              <a class="ratio d-flex hover-effect-scale rounded overflow-hidden flex-md-shrink-0" href="blog-single-v1.html" style="--cz-aspect-ratio: calc(226 / 306 * 100%)">
-                <img src="assets/img/blog/list/04.jpg" class="hover-effect-target" alt="Image">
-              </a>
-            </div>
-            <div class="col-sm-7">
+          <article class="col">
+            <a class="ratio d-flex hover-effect-scale rounded overflow-hidden" href="blog-single-v1.html" style="--cz-aspect-ratio: calc(305 / 416 * 100%)">
+              <img src="assets/img/blog/grid/v1/05.jpg" class="hover-effect-target" alt="Image">
+            </a>
+            <div class="pt-4">
               <div class="nav align-items-center gap-2 pb-2 mt-n1 mb-1">
                 <a class="nav-link text-body fs-xs text-uppercase p-0" href="#!">Tech tips</a>
                 <hr class="vr my-1 mx-1">
                 <span class="text-body-tertiary fs-xs">September 11, 2024</span>
               </div>
-              <h3 class="h5 mb-2 mb-md-3">
+              <h3 class="h5 mb-0">
                 <a class="hover-effect-underline" href="blog-single-v1.html">Optimizing your workspace: The guide to an efficient and minimalist desk setup</a>
               </h3>
-              <p class="mb-0">Creating an efficient and minimalist workspace is not just about decluttering, it's about cultivating an environment that...</p>
             </div>
           </article>
 
           <!-- Article -->
-          <article class="row align-items-start align-items-md-center gx-0 gy-4 pt-3">
-            <div class="col-sm-5 pe-sm-4">
-              <a class="ratio d-flex hover-effect-scale rounded overflow-hidden flex-md-shrink-0" href="blog-single-v1.html" style="--cz-aspect-ratio: calc(226 / 306 * 100%)">
-                <img src="assets/img/blog/list/05.jpg" class="hover-effect-target" alt="Image">
-              </a>
-            </div>
-            <div class="col-sm-7">
+          <article class="col">
+            <a class="ratio d-flex hover-effect-scale rounded overflow-hidden" href="blog-single-v1.html" style="--cz-aspect-ratio: calc(305 / 416 * 100%)">
+              <img src="assets/img/blog/grid/v1/06.jpg" class="hover-effect-target" alt="Image">
+            </a>
+            <div class="pt-4">
               <div class="nav align-items-center gap-2 pb-2 mt-n1 mb-1">
                 <a class="nav-link text-body fs-xs text-uppercase p-0" href="#!">Industry trends</a>
                 <hr class="vr my-1 mx-1">
                 <span class="text-body-tertiary fs-xs">September 5, 2024</span>
               </div>
-              <h3 class="h5 mb-2 mb-md-3">
+              <h3 class="h5 mb-0">
                 <a class="hover-effect-underline" href="blog-single-v1.html">Exploring the skies: The rise of drone photography and videography</a>
               </h3>
-              <p class="mb-0">In the dazzling realm of modern photography and videography, drones have soared beyond mere gadgets to become...</p>
             </div>
           </article>
 
           <!-- Article -->
-          <article class="row align-items-start align-items-md-center gx-0 gy-4 pt-3">
-            <div class="col-sm-5 pe-sm-4">
-              <a class="ratio d-flex hover-effect-scale rounded overflow-hidden flex-md-shrink-0" href="blog-single-v1.html" style="--cz-aspect-ratio: calc(226 / 306 * 100%)">
-                <img src="assets/img/blog/list/06.jpg" class="hover-effect-target" alt="Image">
-              </a>
-            </div>
-            <div class="col-sm-7">
+          <article class="col">
+            <a class="ratio d-flex hover-effect-scale rounded overflow-hidden" href="blog-single-v1.html" style="--cz-aspect-ratio: calc(305 / 416 * 100%)">
+              <img src="assets/img/blog/grid/v1/07.jpg" class="hover-effect-target" alt="Image">
+            </a>
+            <div class="pt-4">
               <div class="nav align-items-center gap-2 pb-2 mt-n1 mb-1">
                 <a class="nav-link text-body fs-xs text-uppercase p-0" href="#!">IoT</a>
                 <hr class="vr my-1 mx-1">
                 <span class="text-body-tertiary fs-xs">August 23, 2024</span>
               </div>
-              <h3 class="h5 mb-2 mb-md-3">
+              <h3 class="h5 mb-0">
                 <a class="hover-effect-underline" href="blog-single-v1.html">Connecting the dots: How IoT technology is transforming everyday life</a>
               </h3>
-              <p class="mb-0">In the ever-evolving landscape of technology, the Internet of Things (IoT) stands out as a transformative force reshaping...</p>
             </div>
           </article>
 
           <!-- Article -->
-          <article class="row align-items-start align-items-md-center gx-0 gy-4 pt-3">
-            <div class="col-sm-5 pe-sm-4">
-              <a class="ratio d-flex hover-effect-scale rounded overflow-hidden flex-md-shrink-0" href="blog-single-v1.html" style="--cz-aspect-ratio: calc(226 / 306 * 100%)">
-                <img src="assets/img/blog/list/07.jpg" class="hover-effect-target" alt="Image">
-              </a>
-            </div>
-            <div class="col-sm-7">
+          <article class="col">
+            <a class="ratio d-flex hover-effect-scale rounded overflow-hidden" href="blog-single-v1.html" style="--cz-aspect-ratio: calc(305 / 416 * 100%)">
+              <img src="assets/img/blog/grid/v1/08.jpg" class="hover-effect-target" alt="Image">
+            </a>
+            <div class="pt-4">
               <div class="nav align-items-center gap-2 pb-2 mt-n1 mb-1">
                 <a class="nav-link text-body fs-xs text-uppercase p-0" href="#!">Buying guides</a>
                 <hr class="vr my-1 mx-1">
                 <span class="text-body-tertiary fs-xs">August 18, 2024</span>
               </div>
-              <h3 class="h5 mb-2 mb-md-3">
+              <h3 class="h5 mb-0">
                 <a class="hover-effect-underline" href="blog-single-v1.html">How to find the best deals and make secure transactions online</a>
               </h3>
-              <p class="mb-0">This blog post will guide you through the dual objectives of snagging great bargains and protecting your financial...</p>
             </div>
           </article>
 
           <!-- Article -->
-          <article class="row align-items-start align-items-md-center gx-0 gy-4 pt-3">
-            <div class="col-sm-5 pe-sm-4">
-              <a class="ratio d-flex hover-effect-scale rounded overflow-hidden flex-md-shrink-0" href="blog-single-v1.html" style="--cz-aspect-ratio: calc(226 / 306 * 100%)">
-                <img src="assets/img/blog/list/08.jpg" class="hover-effect-target" alt="Image">
-              </a>
-            </div>
-            <div class="col-sm-7">
+          <article class="col">
+            <a class="ratio d-flex hover-effect-scale rounded overflow-hidden" href="blog-single-v1.html" style="--cz-aspect-ratio: calc(305 / 416 * 100%)">
+              <img src="assets/img/blog/grid/v1/09.jpg" class="hover-effect-target" alt="Image">
+            </a>
+            <div class="pt-4">
               <div class="nav align-items-center gap-2 pb-2 mt-n1 mb-1">
                 <a class="nav-link text-body fs-xs text-uppercase p-0" href="#!">Gadget reviews</a>
                 <hr class="vr my-1 mx-1">
                 <span class="text-body-tertiary fs-xs">August 9, 2024</span>
               </div>
-              <h3 class="h5 mb-2 mb-md-3">
+              <h3 class="h5 mb-0">
                 <a class="hover-effect-underline" href="blog-single-v1.html">Top 10 electric kitchen appliances for modern homes</a>
               </h3>
-              <p class="mb-0">Creating an efficient and stylish kitchen is a priority for many homeowners. With the rise of technology, the modern home...</p>
+            </div>
+          </article>
+
+          <!-- Article -->
+          <article class="col">
+            <a class="ratio d-flex hover-effect-scale rounded overflow-hidden" href="blog-single-v1.html" style="--cz-aspect-ratio: calc(305 / 416 * 100%)">
+              <img src="assets/img/blog/grid/v1/10.jpg" class="hover-effect-target" alt="Image">
+            </a>
+            <div class="pt-4">
+              <div class="nav align-items-center gap-2 pb-2 mt-n1 mb-1">
+                <a class="nav-link text-body fs-xs text-uppercase p-0" href="#!">Gaming</a>
+                <hr class="vr my-1 mx-1">
+                <span class="text-body-tertiary fs-xs">July 27, 2024</span>
+              </div>
+              <h3 class="h5 mb-0">
+                <a class="hover-effect-underline" href="blog-single-v1.html">Immersive worlds: A dive into the latest VR gear and experiences</a>
+              </h3>
             </div>
           </article>
         </div>
@@ -191,10 +265,10 @@
           <div class="d-flex align-items-center justify-content-between mb-4">
             <h2 class="h3 mb-0">Charitable contributions</h2>
             <div class="d-flex gap-2">
-              <button type="button" id="prev-post" class="btn btn-prev btn-icon btn-outline-secondary rounded-circle animate-slide-start me-1" aria-label="Previous slide" tabindex="0" aria-controls="swiper-wrapper-dcedb2fa57c2b93a">
+              <button type="button" id="prev-post" class="btn btn-prev btn-icon btn-outline-secondary rounded-circle animate-slide-start me-1" aria-label="Previous slide" tabindex="0" aria-controls="swiper-wrapper-335dcf1eeaee101104">
                 <i class="ci-chevron-left fs-lg animate-target"></i>
               </button>
-              <button type="button" id="next-post" class="btn btn-next btn-icon btn-outline-secondary rounded-circle animate-slide-end" aria-label="Next slide" tabindex="0" aria-controls="swiper-wrapper-dcedb2fa57c2b93a">
+              <button type="button" id="next-post" class="btn btn-next btn-icon btn-outline-secondary rounded-circle animate-slide-end" aria-label="Next slide" tabindex="0" aria-controls="swiper-wrapper-335dcf1eeaee101104">
                 <i class="ci-chevron-right fs-lg animate-target"></i>
               </button>
             </div>
@@ -208,7 +282,7 @@
                     &quot;loop&quot;: true,
                     &quot;effect&quot;: &quot;fade&quot;
                   }">
-                <div class="swiper-wrapper" id="swiper-wrapper-3b210ae7b3c9e229f" aria-live="polite">
+                <div class="swiper-wrapper" id="swiper-wrapper-7cbc4ebcb01d3e5e" aria-live="polite">
                   <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active" role="group" aria-label="1 / 2" data-swiper-slide-index="0" style="width: 386px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
                     <div class="ratio ratio-16x9"></div>
                     <img src="assets/img/blog/grid/v1/slider01.jpg" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" alt="Image">
@@ -233,7 +307,7 @@
                       &quot;nextEl&quot;: &quot;#next-post&quot;
                     }
                   }">
-                <div class="swiper-wrapper" id="swiper-wrapper-dcedb2fa57c2b93a" aria-live="polite">
+                <div class="swiper-wrapper" id="swiper-wrapper-335dcf1eeaee101104" aria-live="polite">
                   <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 2" data-swiper-slide-index="0" style="width: 290px; margin-right: 40px;">
                     <h3 class="h5">The role of philanthropy in building a better world</h3>
                     <p class="text-body fs-sm pb-4">Charitable contributions are a vital aspect of building a better world. These contributions come in various forms, including monetary donations, volunteering time, providing expertise...</p>
@@ -251,86 +325,74 @@
         </div>
 
 
-        <!-- Posts list -->
-        <div class="d-flex flex-column gap-4 mt-n3 pb-2 pb-sm-0">
+        <!-- Posts grid -->
+        <div class="row row-cols-1 row-cols-sm-2 gy-5 pb-2 pb-sm-0">
 
           <!-- Article -->
-          <article class="row align-items-start align-items-md-center gx-0 gy-4 pt-3">
-            <div class="col-sm-5 pe-sm-4">
-              <a class="ratio d-flex hover-effect-scale rounded overflow-hidden flex-md-shrink-0" href="blog-single-v1.html" style="--cz-aspect-ratio: calc(226 / 306 * 100%)">
-                <img src="assets/img/blog/list/09.jpg" class="hover-effect-target" alt="Image">
-              </a>
-            </div>
-            <div class="col-sm-7">
-              <div class="nav align-items-center gap-2 pb-2 mt-n1 mb-1">
-                <a class="nav-link text-body fs-xs text-uppercase p-0" href="#!">Gaming</a>
-                <hr class="vr my-1 mx-1">
-                <span class="text-body-tertiary fs-xs">July 27, 2024</span>
-              </div>
-              <h3 class="h5 mb-2 mb-md-3">
-                <a class="hover-effect-underline" href="blog-single-v1.html">Immersive worlds: A dive into the latest VR gear and experiences</a>
-              </h3>
-              <p class="mb-0">Immersive worlds have always captured the imagination, but now, with the advent of advanced VR gear, they are becoming...</p>
-            </div>
-          </article>
-
-          <!-- Article -->
-          <article class="row align-items-start align-items-md-center gx-0 gy-4 pt-3">
-            <div class="col-sm-5 pe-sm-4">
-              <a class="ratio d-flex hover-effect-scale rounded overflow-hidden flex-md-shrink-0" href="blog-single-v1.html" style="--cz-aspect-ratio: calc(226 / 306 * 100%)">
-                <img src="assets/img/blog/list/10.jpg" class="hover-effect-target" alt="Image">
-              </a>
-            </div>
-            <div class="col-sm-7">
+          <article class="col">
+            <a class="ratio d-flex hover-effect-scale rounded overflow-hidden" href="blog-single-v1.html" style="--cz-aspect-ratio: calc(305 / 416 * 100%)">
+              <img src="assets/img/blog/grid/v1/11.jpg" class="hover-effect-target" alt="Image">
+            </a>
+            <div class="pt-4">
               <div class="nav align-items-center gap-2 pb-2 mt-n1 mb-1">
                 <a class="nav-link text-body fs-xs text-uppercase p-0" href="#!">Tech news</a>
                 <hr class="vr my-1 mx-1">
                 <span class="text-body-tertiary fs-xs">July 16, 2024</span>
               </div>
-              <h3 class="h5 mb-2 mb-md-3">
+              <h3 class="h5 mb-0">
                 <a class="hover-effect-underline" href="blog-single-v1.html">Tap, pay, and go: Simplifying transactions with mobile payment solutions</a>
               </h3>
-              <p class="mb-0">In today's fast-paced world, the way we handle transactions is evolving rapidly, and mobile payment solutions are at the...</p>
             </div>
           </article>
 
           <!-- Article -->
-          <article class="row align-items-start align-items-md-center gx-0 gy-4 pt-3">
-            <div class="col-sm-5 pe-sm-4">
-              <a class="ratio d-flex hover-effect-scale rounded overflow-hidden flex-md-shrink-0" href="blog-single-v1.html" style="--cz-aspect-ratio: calc(226 / 306 * 100%)">
-                <img src="assets/img/blog/list/11.jpg" class="hover-effect-target" alt="Image">
-              </a>
+          <article class="col">
+            <a class="ratio d-flex hover-effect-scale rounded overflow-hidden" href="blog-single-v1.html" style="--cz-aspect-ratio: calc(305 / 416 * 100%)">
+              <img src="assets/img/blog/grid/v1/12.jpg" class="hover-effect-target" alt="Image">
+            </a>
+            <div class="pt-4">
+              <div class="nav align-items-center gap-2 pb-2 mt-n1 mb-1">
+                <a class="nav-link text-body fs-xs text-uppercase p-0" href="#!">Industry trends</a>
+                <hr class="vr my-1 mx-1">
+                <span class="text-body-tertiary fs-xs">July 8, 2024</span>
+              </div>
+              <h3 class="h5 mb-0">
+                <a class="hover-effect-underline" href="blog-single-v1.html">The biggest prospects for the smartphone electronics industry</a>
+              </h3>
             </div>
-            <div class="col-sm-7">
+          </article>
+
+          <!-- Article -->
+          <article class="col">
+            <a class="ratio d-flex hover-effect-scale rounded overflow-hidden" href="blog-single-v1.html" style="--cz-aspect-ratio: calc(305 / 416 * 100%)">
+              <img src="assets/img/blog/grid/v1/13.jpg" class="hover-effect-target" alt="Image">
+            </a>
+            <div class="pt-4">
               <div class="nav align-items-center gap-2 pb-2 mt-n1 mb-1">
                 <a class="nav-link text-body fs-xs text-uppercase p-0" href="#!">Product reviews</a>
                 <hr class="vr my-1 mx-1">
                 <span class="text-body-tertiary fs-xs">June 27, 2024</span>
               </div>
-              <h3 class="h5 mb-2 mb-md-3">
+              <h3 class="h5 mb-0">
                 <a class="hover-effect-underline" href="blog-single-v1.html">Future engineers start young: A review of the latest robotic kit for kids</a>
               </h3>
-              <p class="mb-0">The world of technology constantly evolves, and fostering a love for innovation and engineering in young minds has never been...</p>
             </div>
           </article>
 
           <!-- Article -->
-          <article class="row align-items-start align-items-md-center gx-0 gy-4 pt-3">
-            <div class="col-sm-5 pe-sm-4">
-              <a class="ratio d-flex hover-effect-scale rounded overflow-hidden flex-md-shrink-0" href="blog-single-v1.html" style="--cz-aspect-ratio: calc(226 / 306 * 100%)">
-                <img src="assets/img/blog/list/12.jpg" class="hover-effect-target" alt="Image">
-              </a>
-            </div>
-            <div class="col-sm-7">
+          <article class="col">
+            <a class="ratio d-flex hover-effect-scale rounded overflow-hidden" href="blog-single-v1.html" style="--cz-aspect-ratio: calc(305 / 416 * 100%)">
+              <img src="assets/img/blog/grid/v1/14.jpg" class="hover-effect-target" alt="Image">
+            </a>
+            <div class="pt-4">
               <div class="nav align-items-center gap-2 pb-2 mt-n1 mb-1">
                 <a class="nav-link text-body fs-xs text-uppercase p-0" href="#!">Buying guides</a>
                 <hr class="vr my-1 mx-1">
                 <span class="text-body-tertiary fs-xs">June 19, 2024</span>
               </div>
-              <h3 class="h5 mb-2 mb-md-3">
+              <h3 class="h5 mb-0">
                 <a class="hover-effect-underline" href="blog-single-v1.html">A detailed guide to the latest smartphones on the market</a>
               </h3>
-              <p class="mb-0">Keeping pace with the ever-evolving world of smartphones is a challenge for consumers and tech enthusiasts alike...</p>
             </div>
           </article>
         </div>
@@ -468,7 +530,7 @@
             }
           }
         }">
-      <div class="swiper-wrapper" id="swiper-wrapper-c1fa00a3b6e2d9ad" aria-live="polite">
+      <div class="swiper-wrapper" id="swiper-wrapper-7c24a12dd5885a9b" aria-live="polite">
 
         <!-- Article -->
         <article class="swiper-slide hover-effect-scale swiper-slide-active" role="group" aria-label="1 / 4" style="width: 274.25px; margin-right: 24px;">

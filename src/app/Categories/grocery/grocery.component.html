@@ -1,31 +1,53 @@
 <main class="content-wrapper">
 
   <!-- Hero slider -->
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
   <section class="position-relative">
-    <div class="swiper position-absolute top-0 start-0 w-100 h-100 swiper-fade swiper-initialized swiper-horizontal swiper-watch-progress swiper-backface-hidden" data-swiper="{
-          &quot;effect&quot;: &quot;fade&quot;,
-          &quot;loop&quot;: true,
-          &quot;speed&quot;: 400,
-          &quot;pagination&quot;: {
-            &quot;el&quot;: &quot;.swiper-pagination&quot;,
-            &quot;clickable&quot;: true
-          },
-          &quot;autoplay&quot;: {
-            &quot;delay&quot;: 5500,
-            &quot;disableOnInteraction&quot;: false
-          }
-        }" data-bs-theme="dark">
-      <div class="swiper-wrapper" id="swiper-wrapper-5afbf0e9494dd2db" aria-live="off" style="transition-duration: 0ms; transition-delay: 0ms;">
+    <div class="swiper swiper-fade" id="grocerySlider" data-swiper='{
+    "effect": "fade",
+    "loop": true,
+    "speed": 400,
+    "pagination": { "el": ".swiper-pagination", "clickable": true },
+    "autoplay": { "delay": 5500, "disableOnInteraction": false }
+  }' data-bs-theme="dark">
+      <div class="swiper-wrapper">
 
-        <!-- Slide -->
+        <!-- Slide 1 -->
+        <div class="swiper-slide" style="background-color: rgb(109, 175, 202);">
+          <div class="position-absolute d-flex align-items-center w-100 h-100 z-2">
+            <div class="container mt-lg-n4">
+              <div class="row">
+                <div class="col-9 col-sm-8 col-md-7 col-lg-6">
+                  <p class="fs-sm text-white mb-lg-4">🔥 Free shipping - order over <strong>50$</strong></p>
+                  <h2 class="display-4 pb-2 pb-md-3 pb-lg-4">Healthy Food Available to Everyone</h2>
+                  <a class="btn btn-lg btn-outline-light rounded-pill" href="shop-catalog-grocery.html">Shop now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <img src="assets/img/home/grocery/hero-slider/01.jpg" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover rtl-flip" alt="Image">
+        </div>
 
+        <!-- Slide 2 -->
+        <div class="swiper-slide" style="background-color: rgb(90, 121, 120);">
+          <div class="position-absolute d-flex align-items-center w-100 h-100 z-2">
+            <div class="container mt-lg-n4">
+              <div class="row">
+                <div class="col-12 col-sm-10 col-md-7 col-lg-6">
+                  <p class="fs-sm text-white mb-lg-4">🥚 Organic products to your table</p>
+                  <h2 class="display-4 pb-2 pb-md-3 pb-lg-4">Organic eggs from home-grown chicken</h2>
+                  <a class="btn btn-lg btn-outline-light rounded-pill" href="shop-catalog-grocery.html">Shop now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <img src="assets/img/home/grocery/hero-slider/02.jpg" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover rtl-flip" alt="Image">
+        </div>
 
-        <!-- Slide -->
-
-
-        <!-- Slide -->
-
-        <div class="swiper-slide swiper-slide-next" style="background-color: rgb(249, 156, 3); width: 1265px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;" role="group" aria-label="3 / 3" data-swiper-slide-index="2">
+        <!-- Slide 3 -->
+        <div class="swiper-slide" style="background-color: rgb(249, 156, 3);">
           <div class="position-absolute d-flex align-items-center w-100 h-100 z-2">
             <div class="container mt-lg-n4">
               <div class="row">
@@ -38,43 +60,32 @@
             </div>
           </div>
           <img src="assets/img/home/grocery/hero-slider/03.jpg" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover rtl-flip" alt="Image">
-        </div><div class="swiper-slide swiper-slide-prev" style="background-color: rgb(109, 175, 202); width: 1265px; opacity: 1; transform: translate3d(-1265px, 0px, 0px); transition-duration: 0ms;" role="group" aria-label="1 / 3" data-swiper-slide-index="0">
-        <div class="position-absolute d-flex align-items-center w-100 h-100 z-2">
-          <div class="container mt-lg-n4">
-            <div class="row">
-              <div class="col-9 col-sm-8 col-md-7 col-lg-6">
-                <p class="fs-sm text-white mb-lg-4">🔥 Free shipping - order over <strong>50$</strong></p>
-                <h2 class="display-4 pb-2 pb-md-3 pb-lg-4">Healthy Food Available to Everyone</h2>
-                <a class="btn btn-lg btn-outline-light rounded-pill" href="shop-catalog-grocery.html">Shop now</a>
-              </div>
-            </div>
-          </div>
         </div>
-        <img src="assets/img/home/grocery/hero-slider/01.jpg" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover rtl-flip" alt="Image">
-      </div><div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active" style="background-color: rgb(90, 121, 120); width: 1265px; opacity: 1; transform: translate3d(-2530px, 0px, 0px); transition-duration: 0ms;" role="group" aria-label="2 / 3" data-swiper-slide-index="1">
-        <div class="position-absolute d-flex align-items-center w-100 h-100 z-2">
-          <div class="container mt-lg-n4">
-            <div class="row">
-              <div class="col-12 col-sm-10 col-md-7 col-lg-6">
-                <p class="fs-sm text-white mb-lg-4">🥚 Organic products to your table</p>
-                <h2 class="display-4 pb-2 pb-md-3 pb-lg-4">Organic eggs from home-grown chicken</h2>
-                <a class="btn btn-lg btn-outline-light rounded-pill" href="shop-catalog-grocery.html">Shop now</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <img src="assets/img/home/grocery/hero-slider/02.jpg" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover rtl-flip" alt="Image">
-      </div></div>
+      </div>
 
-      <!-- Slider pagination (Bullets) -->
-      <div class="swiper-pagination pb-sm-2 swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 2" aria-current="true"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span></div>
-      <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+      <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+    </div>
+
+    <!-- Responsive height placeholders -->
     <div class="d-md-none" style="height: 380px"></div>
     <div class="d-none d-md-block d-lg-none" style="height: 420px"></div>
     <div class="d-none d-lg-block d-xl-none" style="height: 500px"></div>
     <div class="d-none d-xl-block d-xxl-none" style="height: 560px"></div>
     <div class="d-none d-xxl-block" style="height: 624px"></div>
   </section>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- Swiper Init -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const grocerySlider = new Swiper("#grocerySlider", JSON.parse(document.querySelector("#grocerySlider").getAttribute("data-swiper")));
+    });
+  </script>
+  >
 
 
   <!-- Featured categories that turns into carousel on screen < 992px (lg breackpoint) -->

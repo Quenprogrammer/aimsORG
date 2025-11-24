@@ -1,200 +1,130 @@
 <main class="content-wrapper">
 
   <!-- Hero slider -->
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
   <section class="bg-body-tertiary min-vh-100 d-flex align-items-center overflow-hidden" style="margin-top: -110px; padding-top: 110px">
     <div class="container h-100 py-5 my-md-2 my-lg-3 my-xl-4 mb-xxl-5">
       <h1 class="display-4 text-center mx-auto mb-4" style="max-width: 680px">Everything You Need for a Modern Interior</h1>
       <div class="row align-items-center justify-content-center gx-3 gx-sm-4 mb-3 mb-sm-4">
 
-        <!-- Prev slide preview (controlled slider) -->
+        <!-- Prev slide preview -->
         <div class="col-lg-1 col-xl-2 d-none d-lg-flex justify-content-end">
           <div class="position-relative user-select-none" style="width: 262px">
-            <span class="position-absolute top-0 start-0 w-100 h-100 bg-white opacity-50 rounded-circle d-none-dark"></span>
-            <span class="position-absolute top-0 start-0 w-100 h-100 bg-white rounded-circle d-none-dark d-none d-block-dark" style="opacity: .05"></span>
-            <div class="swiper position-relative z-2 opacity-60 rounded-circle pe-none swiper-coverflow swiper-3d swiper-initialized swiper-horizontal swiper-watch-progress" id="thumbsPrev" data-swiper="{
-                  &quot;allowTouchMove&quot;: false,
-                  &quot;loop&quot;: true,
-                  &quot;effect&quot;: &quot;coverflow&quot;,
-                  &quot;coverflowEffect&quot;: {
-                    &quot;rotate&quot;: 0,
-                    &quot;scale&quot;: 1.3,
-                    &quot;depth&quot;: -200,
-                    &quot;stretch&quot;: -100,
-                    &quot;slideShadows&quot;: false
-                  }
-                }">
-              <div class="swiper-wrapper" id="swiper-wrapper-41076b531f54bc4810" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);">
-                <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active" role="group" aria-label="1 / 4" data-swiper-slide-index="0" style="width: 262px; transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) scale(1); z-index: 1;">
-                  <div class="ratio ratio-1x1">
-                    <img src="assets/img/home/furniture/hero-slider/th04.png" alt="Thumbnail">
-                  </div>
-                </div>
-                <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 4" data-swiper-slide-index="1" style="width: 262px; transform: translate3d(100px, 0px, 200px) rotateX(0deg) rotateY(0deg) scale(1.3); z-index: 0;">
-                  <div class="ratio ratio-1x1">
-                    <img src="assets/img/home/furniture/hero-slider/th01.png" alt="Thumbnail">
-                  </div>
-                </div>
-                <div class="swiper-slide" role="group" aria-label="3 / 4" data-swiper-slide-index="2" style="width: 262px; transform: translate3d(200px, 0px, 400px) rotateX(0deg) rotateY(0deg) scale(1.6); z-index: -1;">
-                  <div class="ratio ratio-1x1">
-                    <img src="assets/img/home/furniture/hero-slider/th02.png" alt="Thumbnail">
-                  </div>
-                </div>
-                <div class="swiper-slide" role="group" aria-label="4 / 4" data-swiper-slide-index="3" style="width: 262px; transform: translate3d(300px, 0px, 600px) rotateX(0deg) rotateY(0deg) scale(1.9); z-index: -2;">
-                  <div class="ratio ratio-1x1">
-                    <img src="assets/img/home/furniture/hero-slider/th03.png" alt="Thumbnail">
-                  </div>
-                </div>
+            <div class="swiper position-relative z-2 opacity-60 rounded-circle pe-none swiper-coverflow" id="thumbsPrev" data-swiper='{
+            "allowTouchMove": false,
+            "loop": true,
+            "effect": "coverflow",
+            "coverflowEffect": { "rotate": 0, "scale": 1.3, "depth": -200, "stretch": -100, "slideShadows": false }
+          }'>
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="assets/img/home/furniture/hero-slider/th04.png" alt="Thumbnail" class="ratio ratio-1x1"></div>
+                <div class="swiper-slide"><img src="assets/img/home/furniture/hero-slider/th01.png" alt="Thumbnail" class="ratio ratio-1x1"></div>
+                <div class="swiper-slide"><img src="assets/img/home/furniture/hero-slider/th02.png" alt="Thumbnail" class="ratio ratio-1x1"></div>
+                <div class="swiper-slide"><img src="assets/img/home/furniture/hero-slider/th03.png" alt="Thumbnail" class="ratio ratio-1x1"></div>
               </div>
-              <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+            </div>
           </div>
         </div>
 
         <!-- Prev button -->
-        <div class="col-auto col-sm-1 order-1 order-lg-2 d-flex align-items-center justify-content-center">
-          <button type="button" class="btn-prev btn btn-lg btn-icon btn-outline-secondary rounded-circle animate-slide-start" aria-label="Previous slide" tabindex="0" aria-controls="swiper-wrapper-1e0310bdc126104462">
-            <i class="ci-chevron-left fs-xl animate-target"></i>
+        <div class="col-auto col-sm-1 d-flex align-items-center justify-content-center">
+          <button type="button" class="btn-prev btn btn-lg btn-icon btn-outline-secondary rounded-circle">
+            <i class="ci-chevron-left fs-xl"></i>
           </button>
         </div>
 
         <!-- Main slider -->
-        <div class="col-sm-10 col-lg-8 col-xl-6 order-3">
-          <div class="swiper user-select-none rounded-pill swiper-coverflow swiper-3d swiper-initialized swiper-horizontal swiper-watch-progress" data-swiper="{
-                &quot;loop&quot;: true,
-                &quot;grabCursor&quot;: true,
-                &quot;speed&quot;: 600,
-                &quot;controlSlider&quot;: [&quot;#thumbsPrev&quot;, &quot;#thumbsNext&quot;, &quot;#captions&quot;],
-                &quot;effect&quot;: &quot;coverflow&quot;,
-                &quot;coverflowEffect&quot;: {
-                  &quot;rotate&quot;: 0,
-                  &quot;scale&quot;: 1.3,
-                  &quot;depth&quot;: -200,
-                  &quot;stretch&quot;: -100,
-                  &quot;slideShadows&quot;: false
-                },
-                &quot;navigation&quot;: {
-                  &quot;prevEl&quot;: &quot;.btn-prev&quot;,
-                  &quot;nextEl&quot;: &quot;.btn-next&quot;
-                }
-              }">
-            <div class="swiper-wrapper" id="swiper-wrapper-1e0310bdc126104462" aria-live="polite" style="cursor: grab; transform: translate3d(0px, 0px, 0px);">
-              <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active" data-swiper-binded="#description1" role="group" aria-label="1 / 4" data-swiper-slide-index="0" style="width: 573px; transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) scale(1); z-index: 1;">
-                <div class="ratio" style="--cz-aspect-ratio: calc(400 / 636 * 100%)">
-                  <img src="assets/img/home/furniture/hero-slider/01.png" alt="Image">
-                </div>
-              </div>
-              <div class="swiper-slide swiper-slide-next" data-swiper-binded="#description2" role="group" aria-label="2 / 4" data-swiper-slide-index="1" style="width: 573px; transform: translate3d(100px, 0px, 200px) rotateX(0deg) rotateY(0deg) scale(1.3); z-index: 0;">
-                <div class="ratio" style="--cz-aspect-ratio: calc(400 / 636 * 100%)">
-                  <img src="assets/img/home/furniture/hero-slider/02.png" alt="Image">
-                </div>
-              </div>
-              <div class="swiper-slide" data-swiper-binded="#description3" role="group" aria-label="3 / 4" data-swiper-slide-index="2" style="width: 573px; transform: translate3d(200px, 0px, 400px) rotateX(0deg) rotateY(0deg) scale(1.6); z-index: -1;">
-                <div class="ratio" style="--cz-aspect-ratio: calc(400 / 636 * 100%)">
-                  <img src="assets/img/home/furniture/hero-slider/03.png" alt="Image">
-                </div>
-              </div>
-              <div class="swiper-slide" data-swiper-binded="#description4" role="group" aria-label="4 / 4" data-swiper-slide-index="3" style="width: 573px; transform: translate3d(300px, 0px, 600px) rotateX(0deg) rotateY(0deg) scale(1.9); z-index: -2;">
-                <div class="ratio" style="--cz-aspect-ratio: calc(400 / 636 * 100%)">
-                  <img src="assets/img/home/furniture/hero-slider/04.png" alt="Image">
-                </div>
-              </div>
+        <div class="col-sm-10 col-lg-8 col-xl-6">
+          <div class="swiper user-select-none rounded-pill swiper-coverflow" id="mainSlider" data-swiper='{
+          "loop": true,
+          "grabCursor": true,
+          "controlSlider": ["#thumbsPrev","#thumbsNext","#captions"],
+          "effect": "coverflow",
+          "coverflowEffect": { "rotate": 0, "scale": 1.3, "depth": -200, "stretch": -100, "slideShadows": false },
+          "navigation": { "prevEl": ".btn-prev", "nextEl": ".btn-next" }
+        }'>
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="assets/img/home/furniture/hero-slider/01.png" alt="Image" class="ratio" style="--cz-aspect-ratio: calc(400/636*100%)"></div>
+              <div class="swiper-slide"><img src="assets/img/home/furniture/hero-slider/02.png" alt="Image" class="ratio" style="--cz-aspect-ratio: calc(400/636*100%)"></div>
+              <div class="swiper-slide"><img src="assets/img/home/furniture/hero-slider/03.png" alt="Image" class="ratio" style="--cz-aspect-ratio: calc(400/636*100%)"></div>
+              <div class="swiper-slide"><img src="assets/img/home/furniture/hero-slider/04.png" alt="Image" class="ratio" style="--cz-aspect-ratio: calc(400/636*100%)"></div>
             </div>
-            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+          </div>
         </div>
 
         <!-- Next button -->
-        <div class="col-auto col-sm-1 order-2 order-sm-3 order-lg-4 d-flex align-items-center justify-content-center">
-          <button type="button" class="btn-next btn btn-lg btn-icon btn-outline-secondary rounded-circle animate-slide-end" aria-label="Next slide" tabindex="0" aria-controls="swiper-wrapper-1e0310bdc126104462">
-            <i class="ci-chevron-right fs-xl animate-target"></i>
+        <div class="col-auto col-sm-1 d-flex align-items-center justify-content-center">
+          <button type="button" class="btn-next btn btn-lg btn-icon btn-outline-secondary rounded-circle">
+            <i class="ci-chevron-right fs-xl"></i>
           </button>
         </div>
 
-        <!-- Next slide preview (controlled slider) -->
-        <div class="col-lg-1 col-xl-2 order-lg-5 d-none d-lg-block">
+        <!-- Next slide preview -->
+        <div class="col-lg-1 col-xl-2 d-none d-lg-block">
           <div class="position-relative user-select-none" style="width: 262px">
-            <span class="position-absolute top-0 start-0 w-100 h-100 bg-white opacity-50 rounded-circle d-none-dark"></span>
-            <span class="position-absolute top-0 start-0 w-100 h-100 bg-white rounded-circle d-none-dark d-none d-block-dark" style="opacity: .05"></span>
-            <div class="swiper position-relative z-2 opacity-60 rounded-circle pe-none swiper-coverflow swiper-3d swiper-initialized swiper-horizontal swiper-watch-progress" id="thumbsNext" data-swiper="{
-                  &quot;allowTouchMove&quot;: false,
-                  &quot;loop&quot;: true,
-                  &quot;effect&quot;: &quot;coverflow&quot;,
-                  &quot;coverflowEffect&quot;: {
-                    &quot;rotate&quot;: 0,
-                    &quot;scale&quot;: 1.3,
-                    &quot;depth&quot;: -200,
-                    &quot;stretch&quot;: -100,
-                    &quot;slideShadows&quot;: false
-                  }
-                }">
-              <div class="swiper-wrapper" id="swiper-wrapper-26d543bb4bb48d9c" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);">
-                <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active" role="group" aria-label="1 / 4" data-swiper-slide-index="0" style="width: 262px; transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) scale(1); z-index: 1;">
-                  <div class="ratio ratio-1x1">
-                    <img src="assets/img/home/furniture/hero-slider/th02.png" alt="Thumbnail">
-                  </div>
-                </div>
-                <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 4" data-swiper-slide-index="1" style="width: 262px; transform: translate3d(100px, 0px, 200px) rotateX(0deg) rotateY(0deg) scale(1.3); z-index: 0;">
-                  <div class="ratio ratio-1x1">
-                    <img src="assets/img/home/furniture/hero-slider/th03.png" alt="Thumbnail">
-                  </div>
-                </div>
-                <div class="swiper-slide" role="group" aria-label="3 / 4" data-swiper-slide-index="2" style="width: 262px; transform: translate3d(200px, 0px, 400px) rotateX(0deg) rotateY(0deg) scale(1.6); z-index: -1;">
-                  <div class="ratio ratio-1x1">
-                    <img src="assets/img/home/furniture/hero-slider/th04.png" alt="Thumbnail">
-                  </div>
-                </div>
-                <div class="swiper-slide" role="group" aria-label="4 / 4" data-swiper-slide-index="3" style="width: 262px; transform: translate3d(300px, 0px, 600px) rotateX(0deg) rotateY(0deg) scale(1.9); z-index: -2;">
-                  <div class="ratio ratio-1x1">
-                    <img src="assets/img/home/furniture/hero-slider/th01.png" alt="Thumbnail">
-                  </div>
-                </div>
+            <div class="swiper position-relative z-2 opacity-60 rounded-circle pe-none swiper-coverflow" id="thumbsNext" data-swiper='{
+            "allowTouchMove": false,
+            "loop": true,
+            "effect": "coverflow",
+            "coverflowEffect": { "rotate": 0, "scale": 1.3, "depth": -200, "stretch": -100, "slideShadows": false }
+          }'>
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="assets/img/home/furniture/hero-slider/th02.png" alt="Thumbnail" class="ratio ratio-1x1"></div>
+                <div class="swiper-slide"><img src="assets/img/home/furniture/hero-slider/th03.png" alt="Thumbnail" class="ratio ratio-1x1"></div>
+                <div class="swiper-slide"><img src="assets/img/home/furniture/hero-slider/th04.png" alt="Thumbnail" class="ratio ratio-1x1"></div>
+                <div class="swiper-slide"><img src="assets/img/home/furniture/hero-slider/th01.png" alt="Thumbnail" class="ratio ratio-1x1"></div>
               </div>
-              <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Linked captions (controlled slider) -->
-      <div class="swiper swiper-fade swiper-initialized swiper-horizontal swiper-watch-progress swiper-backface-hidden" id="captions" data-swiper="{
-            &quot;allowTouchMove&quot;: false,
-            &quot;loop&quot;: true,
-            &quot;effect&quot;: &quot;fade&quot;
-          }">
-        <div class="swiper-wrapper" id="swiper-wrapper-34587054268b875c" aria-live="polite">
-          <div class="swiper-slide bg-body-tertiary text-center swiper-slide-visible swiper-slide-fully-visible swiper-slide-active" role="group" aria-label="1 / 4" data-swiper-slide-index="0" style="width: 1169px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
-            <h3 class="text-secondary-emphasis fs-base fw-normal mb-2">Navy blue low sofa for relaxation</h3>
-            <p class="h4 mb-4">$1,250.00</p>
-            <a class="btn btn-lg btn-dark rounded-pill" href="shop-product-furniture.html">
-              Shop now
-              <i class="ci-chevron-right fs-lg ms-2 me-n2"></i>
-            </a>
+      <!-- Linked captions -->
+      <div class="swiper swiper-fade" id="captions" data-swiper='{"allowTouchMove": false, "loop": true, "effect": "fade"}'>
+        <div class="swiper-wrapper">
+          <div class="swiper-slide text-center bg-body-tertiary">
+            <h3>Navy blue low sofa for relaxation</h3>
+            <p>$1,250.00</p>
+            <a class="btn btn-lg btn-dark rounded-pill" href="shop-product-furniture.html">Shop now</a>
           </div>
-          <div class="swiper-slide bg-body-tertiary text-center swiper-slide-next" role="group" aria-label="2 / 4" data-swiper-slide-index="1" style="width: 1169px; opacity: 0; transform: translate3d(-1169px, 0px, 0px);">
-            <h3 class="text-secondary-emphasis fs-base fw-normal mb-2">Armchair with wooden legs 70x120 cm</h3>
-            <p class="h4 mb-4">$269.99</p>
-            <a class="btn btn-lg btn-dark rounded-pill" href="shop-product-furniture.html">
-              Shop now
-              <i class="ci-chevron-right fs-lg ms-2 me-n2"></i>
-            </a>
+          <div class="swiper-slide text-center bg-body-tertiary">
+            <h3>Armchair with wooden legs 70x120 cm</h3>
+            <p>$269.99</p>
+            <a class="btn btn-lg btn-dark rounded-pill" href="shop-product-furniture.html">Shop now</a>
           </div>
-          <div class="swiper-slide bg-body-tertiary text-center" role="group" aria-label="3 / 4" data-swiper-slide-index="2" style="width: 1169px; opacity: 0; transform: translate3d(-2338px, 0px, 0px);">
-            <h3 class="text-secondary-emphasis fs-base fw-normal mb-2">Bed frame light gray 140x200 cm</h3>
-            <p class="h4 mb-4">$760.00</p>
-            <a class="btn btn-lg btn-dark rounded-pill" href="shop-product-furniture.html">
-              Shop now
-              <i class="ci-chevron-right fs-lg ms-2 me-n2"></i>
-            </a>
+          <div class="swiper-slide text-center bg-body-tertiary">
+            <h3>Bed frame light gray 140x200 cm</h3>
+            <p>$760.00</p>
+            <a class="btn btn-lg btn-dark rounded-pill" href="shop-product-furniture.html">Shop now</a>
           </div>
-          <div class="swiper-slide bg-body-tertiary text-center" role="group" aria-label="4 / 4" data-swiper-slide-index="3" style="width: 1169px; opacity: 0; transform: translate3d(-3507px, 0px, 0px);">
-            <h3 class="text-secondary-emphasis fs-base fw-normal mb-2">Blue armchair with iron legs</h3>
-            <p class="h4 mb-4">$220.00</p>
-            <a class="btn btn-lg btn-dark rounded-pill" href="shop-product-furniture.html">
-              Shop now
-              <i class="ci-chevron-right fs-lg ms-2 me-n2"></i>
-            </a>
+          <div class="swiper-slide text-center bg-body-tertiary">
+            <h3>Blue armchair with iron legs</h3>
+            <p>$220.00</p>
+            <a class="btn btn-lg btn-dark rounded-pill" href="shop-product-furniture.html">Shop now</a>
           </div>
         </div>
-        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+      </div>
     </div>
   </section>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- Swiper Init -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const thumbsPrev = new Swiper("#thumbsPrev", JSON.parse(document.querySelector("#thumbsPrev").getAttribute("data-swiper")));
+      const thumbsNext = new Swiper("#thumbsNext", JSON.parse(document.querySelector("#thumbsNext").getAttribute("data-swiper")));
+      const captions = new Swiper("#captions", JSON.parse(document.querySelector("#captions").getAttribute("data-swiper")));
+      const mainSlider = new Swiper("#mainSlider", Object.assign(
+        JSON.parse(document.querySelector("#mainSlider").getAttribute("data-swiper")),
+        { thumbs: { swiper: thumbsPrev } } // optional: main slider linked to thumbsPrev
+      ));
+    });
+  </script>
+  >
 
 
   <!-- Categories -->
