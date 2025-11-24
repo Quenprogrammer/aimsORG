@@ -1,0 +1,203 @@
+<div class="row">
+
+
+  <div class="col-lg-8 h-100">
+    <div *ngIf="isCreating" class="alert alert-info">
+      Creating product document...
+    </div>
+
+
+
+    <div class="card mb-3">
+      <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h6 class="mb-0">Product Information</h6>
+          <div *ngIf="isUpdating && !isCreating" class="text-warning small">
+            <i class="fa fa-spinner fa-spin me-1"></i> Updating product...
+          </div>
+        </div>
+
+      </div>
+
+      <div class="card-body">
+        <form [formGroup]="productForm" (ngSubmit)="saveProduct()" novalidate>
+
+          <!-- Product Name & Price -->
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="productName" class="form-label">Product Name</label>
+              <input
+                type="text"
+                id="productName"
+                class="form-control"
+                formControlName="name"
+                placeholder="Enter product name"
+                [class.is-invalid]="productForm.get('name')?.invalid && (productForm.get('name')?.touched || productForm.get('name')?.dirty)">
+              <div class="invalid-feedback">Please enter a product name.</div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label for="basePrice" class="form-label">Base Price ($)</label>
+              <input
+                type="number"
+                id="basePrice"
+                class="form-control"
+                formControlName="basePrice"
+                placeholder="0.00"
+                [class.is-invalid]="productForm.get('basePrice')?.invalid && (productForm.get('basePrice')?.touched || productForm.get('basePrice')?.dirty)">
+              <div class="invalid-feedback">Please provide a valid price.</div>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea
+                id="description"
+                rows="3"
+                class="form-control"
+                formControlName="description"
+                placeholder="Write product description..."
+                [class.is-invalid]="productForm.get('description')?.invalid && (productForm.get('description')?.touched || productForm.get('description')?.dirty)">
+            </textarea>
+              <div class="invalid-feedback">Please provide a description.</div>
+            </div>
+          </div>
+
+          <!-- Collection & Brand -->
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="collection" class="form-label">Collection</label>
+              <input type="text" class="form-control" id="collection" formControlName="collection" placeholder="e.g. Summer 2025">
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label for="brand" class="form-label">Brand / Manufacturer</label>
+              <input type="text" class="form-control" id="brand" formControlName="brand" placeholder="e.g. Nike, Samsung">
+            </div>
+          </div>
+          <hr>
+          <!-- Custom Fields -->
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <label class="form-label">Custom Fields</label>
+              <div formArrayName="customFields">
+                @for (field of customFields.controls; track $index) {
+                  <div [formGroupName]="$index" class="d-flex mb-2">
+                    <input type="text" class="form-control me-2" placeholder="Field Name (e.g. Material)" formControlName="key"
+                           [class.is-invalid]="field.get('key')?.invalid && (field.get('key')?.touched || field.get('key')?.dirty)">
+                    <input type="text" class="form-control me-2" placeholder="Value (e.g. Cotton)" formControlName="value"
+                           [class.is-invalid]="field.get('value')?.invalid && (field.get('value')?.touched || field.get('value')?.dirty)">
+                    <button type="button" class="btn btn-sm btn-danger" (click)="removeCustomField($index)">Remove</button>
+                  </div>
+                }
+              </div>
+              <button type="button" class="btn btn-outline-primary mt-2" (click)="addCustomField()">+ Add Custom Field</button>
+            </div>
+          </div>
+          <hr>
+
+
+
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <label class="form-label">Specifications</label>
+              <div formArrayName="specifications">
+                @for (field of specifications.controls; track $index) {
+                  <div [formGroupName]="$index" class="d-flex mb-2">
+                    <input
+                      type="text"
+                      class="form-control me-2"
+                      placeholder="Specification Name (e.g. Material)"
+                      formControlName="key"
+                      [class.is-invalid]="field.get('key')?.invalid && (field.get('key')?.touched || field.get('key')?.dirty)"
+                    >
+                    <input
+                      type="text"
+                      class="form-control me-2"
+                      placeholder="Value (e.g. Cotton)"
+                      formControlName="value"
+                      [class.is-invalid]="field.get('value')?.invalid && (field.get('value')?.touched || field.get('value')?.dirty)"
+                    >
+                    <button type="button" class="btn btn-sm btn-danger" (click)="removeSpecification($index)">Remove</button>
+                  </div>
+                }
+              </div>
+              <button type="button" class="btn btn-outline-primary mt-2" (click)="addSpecification()">+ Add Specification</button>
+            </div>
+          </div>
+
+
+          <!-- Submit -->
+          <!--<button class="btn btn-primary" type="submit" [disabled]="!productForm.valid">Save Base Product</button>
+      -->  </form>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+  <aside class="col-lg-4 h-100" >
+    <!-- Product Video Upload -->
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <app-property-video-section
+          [product]="productForm.value"
+          (onUpdateField)="handleVideoUpdate($event)">
+        </app-property-video-section>
+      </div>
+    </div>
+<lh-cover-image [docId]="''"></lh-cover-image>
+
+  </aside>
+
+</div>
+
+
+<hr>
+
+
+<lh-property-images-section
+  [imageUrls]="imageUrls"
+  [fieldName]="'images'"
+  [showSmall]="false"
+  (onUpdateField)="updateImages($event)">
+</lh-property-images-section>
+<hr>
+
+<div class="card shadow-lg border mb-3 mb-lg-5"  *ngIf="!showCustomization">
+  <!-- Header -->
+
+
+
+  <!-- End Header -->
+
+  <!-- Body -->
+  <div class="card-body d-flex flex-column align-items-center justify-content-center text-center">
+    <h4 class="card-title mb-4">Vendor Customization Settings</h4>
+
+    <div id="attachFilesNewProjectLabel"
+         class="js-dropzone dz-dropzone dz-dropzone-card dz-clickable text-center"
+         style="max-width: 600px; width: 100%;">
+      <div class="dz-message d-flex flex-column justify-content-center align-items-center p-4">
+        <img style="max-width: 250px;" class="avatar avatar-xl avatar-4x3 mb-3"
+             src="assets/img_2.png" alt="Image Description" data-hs-theme-appearance="default">
+
+        <p style="font-size: 18px;" class="mb-1 px-3">
+          Set colors, sizes, and styles that match your brand, giving your products a unique identity and lasting impression.
+        </p>
+        <span  class="btn btn-dark mt-5 btn-md my-1"  (click)="showCustomization = true">Start Customizing</span>
+      </div>
+    </div>
+    <!-- End Dropzone -->
+  </div>
+
+  <!-- Body -->
+</div>
+<lh-customization *ngIf="showCustomization">></lh-customization>
+
+
+

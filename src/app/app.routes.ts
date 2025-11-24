@@ -88,6 +88,7 @@ export const routes: Routes = [
   { path: 'accounts/register-vendors', component: RegisterVendorsComponent },
   { path: 'accounts/kyc', component: KycComponent },
   {path: 'adminUsers', loadComponent: () => import('../app/samuel/admin/users').then(c => Users)},
+  {path: 'adminUsers', loadComponent: () => import('../app/samuel/admin/users').then(c => Users)},
   {path: 'adminInbox', loadComponent: () => import('../app/samuel/admin/inbox').then(c => Inbox)},
   {path: 'adminEvents', loadComponent: () => import('../app/samuel/admin/events').then(c => Events)},
   {path: 'adminUnit', loadComponent: () => import('../app/samuel/admin/users').then(c => Unit)},

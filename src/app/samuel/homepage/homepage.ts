@@ -5,6 +5,8 @@ import {Testimonials} from './testimonials/testimonials';
 import {SocialMedia} from './social-media/social-media';
 import {HomeProducts} from './home-products/home-products';
 import {Offers} from './offers/offers';
+import {addDoc, collection, Firestore} from '@angular/fire/firestore';
+import {UploadPost} from '../admin/post/upload-post';
 
 @Component({
   selector: 'api-homepage',
@@ -14,7 +16,8 @@ import {Offers} from './offers/offers';
     Testimonials,
     SocialMedia,
     HomeProducts,
-    Offers
+    Offers,
+    UploadPost
   ],
   templateUrl: './homepage.html',
   styleUrl: './homepage.css',

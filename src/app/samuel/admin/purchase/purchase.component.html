@@ -1,0 +1,100 @@
+<div>
+  <!-- Header -->
+  <div class="d-sm-flex align-items-center justify-content-between gap-3 pb-2 pb-sm-3 mb-md-2">
+    <h1 class="h2 text-nowrap mb-sm-0">
+      Purchases ({{ filteredPurchases.length }})
+    </h1>
+
+    <!-- Search box -->
+    <div class="position-relative w-100" style="max-width: 300px">
+      <i class="ci-search position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+      <input
+        type="search"
+        class="form-control form-icon-start rounded-pill"
+        placeholder="Search"
+        [(ngModel)]="searchTerm"
+        (input)="onSearch()"
+      />
+      <button
+        *ngIf="searchTerm"
+        (click)="searchTerm=''; onSearch()"
+        class="btn btn-sm btn-outline-secondary w-auto border-0 p-1 position-absolute top-50 end-0 translate-middle-y me-2">
+        <svg class="opacity-75" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.619 5.381a.875.875 0 0 1 0 1.238l-12 12A.875.875 0 0 1 5.38 17.38l12-12a.875.875 0 0 1 1.238 0Z"></path>
+          <path d="M5.381 5.381a.875.875 0 0 1 1.238 0l12 12a.875.875 0 1 1-1.238 1.238l-12-12a.875.875 0 0 1 0-1.238Z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Loading state -->
+  <div *ngIf="loading" class="text-center py-5">
+    <lh-loading [message]="'Loading Purchase'"></lh-loading>
+  </div>
+
+  <!-- Empty state -->
+  <div *ngIf="!loading && !filteredPurchases.length" class="text-center py-5 text-muted">
+    <div class="card border-2 shadow-lg" style="border-radius: 20px; height: 550px">
+      <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
+        <lh-no-document></lh-no-document>
+      </div>
+    </div>
+  </div>
+
+  <!-- Purchases list -->
+  <table *ngIf="!loading && filteredPurchases.length" class="table align-middle fs-sm mb-0">
+    <thead>
+    <tr>
+      <th scope="col">Product</th>
+      <th class="d-none d-md-table-cell">Purchase date</th>
+      <th class="d-none d-md-table-cell">License</th>
+      <th class="d-none d-sm-table-cell pe-0"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let purchase of filteredPurchases">
+      <td class="py-3 px-0 pe-sm-2">
+        <div class="d-flex align-items-start align-items-md-center hover-effect-scale position-relative py-1">
+          <div class="ratio bg-body-secondary rounded overflow-hidden flex-shrink-sm-0"
+               style="--cz-aspect-ratio: calc(110 / 142 * 100%); max-width: 142px">
+            <img [src]="purchase.productImage" alt="Image" />
+          </div>
+          <div class="ps-2 ps-sm-3 ms-1">
+            <h6 class="product mb-2">
+              <a class="fs-sm fw-medium hover-effect-underline stretched-link" [href]="purchase.productLink">
+                {{ purchase.productName }}
+              </a>
+            </h6>
+            <div class="d-flex align-items-center flex-wrap gap-1 fs-xs">
+              <div class="author d-flex align-items-center fs-xs fw-medium text-body gap-1 p-0">
+                <div class="flex-shrink-0 border rounded-circle" style="width: 22px">
+                  <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
+                    <img [src]="purchase.author.avatar" alt="Avatar" />
+                  </div>
+                </div>
+                {{ purchase.author.name }}
+              </div>
+              <div class="text-body-secondary">in</div>
+              <div class="category fs-xs fw-medium text-body">{{ purchase.category }}</div>
+            </div>
+            <div class="fs-xs text-nowrap d-md-none mt-2 mb-1">
+              <span class="text-body-secondary">License:</span> {{ purchase.license }}
+            </div>
+            <div class="fs-xs text-nowrap d-md-none">
+              <span class="text-body-secondary">Date:</span> {{ purchase.date }}
+            </div>
+          </div>
+        </div>
+      </td>
+      <td class="d-none d-md-table-cell py-3">{{ purchase.date }}</td>
+      <td class="d-none d-md-table-cell py-3">{{ purchase.license }}</td>
+      <td class="d-none d-sm-table-cell text-end py-3 ps-0 ps-sm-3 pe-0" style="width: 120px">
+        <button type="button" class="btn btn-sm btn-secondary rounded-pill animate-scale">
+          <i class="ci-download-cloud fs-sm ms-n1 me-1"></i>
+          Download
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

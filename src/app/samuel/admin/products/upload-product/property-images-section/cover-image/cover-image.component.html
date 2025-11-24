@@ -1,0 +1,35 @@
+<div class="card p-4">
+  <div class="mb-4">
+    <label class="form-label">Upload Cover Image</label>
+    <div class="cover-image-uploader text-center bg-body-tertiary">
+
+
+      <!-- Existing image preview -->
+      <div *ngIf="featuredImageUrl; else uploadInput" class="mb-3">
+        <img [src]="featuredImageUrl" class="img-fluid rounded" style="max-height: 400px;" />
+        <br />
+        <button class="btn btn-danger btn-sm mt-2" (click)="clearFeaturedImage()">Remove Image</button>
+      </div>
+
+      <!-- Upload input -->
+      <ng-template #uploadInput>
+        <div class="dz-message p-4 border border-dashed rounded" (click)="fileInput.click()" style="cursor: pointer;">
+          <img style="width: 80px" class="avatar avatar-xl mb-3" src="assets/img_1.png"
+               alt="Image Description">
+          <br />
+          <span class="btn btn-outline-dark btn-sm">Browse</span>
+          <input #fileInput type="file" style="display: none;" (change)="onFileSelected($event)" [multiple]="false">
+        </div>
+
+        <!-- Upload progress bar -->
+        <div *ngIf="isUploading()" class="progress mt-2">
+          <div class="progress-bar" [style.width.%]="uploadProgress">
+            {{ uploadProgress | number:'1.0-0' }}%
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+</div>
+

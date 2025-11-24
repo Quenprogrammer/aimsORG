@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import {ContactForm} from './contact-form/contact-form';
 
 @Component({
   selector: 'app-contact-us',
-  imports: [],
+  imports: [
+    ContactForm
+  ],
   templateUrl: './contact-us.html',
   styleUrl: './contact-us.css',
 })

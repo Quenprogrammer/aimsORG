@@ -3,6 +3,7 @@ import {MenuCardHeader} from '../../system/menu-card-header/menu-card-header';
 import {RouterLink} from '@angular/router';
 import {Modal} from '../../system/modal';
 import {SystemInfoComponent} from '../../system/menu-card-header/system-info/system-info.component';
+import {addDoc, collection, Firestore} from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-menu',
@@ -47,5 +48,20 @@ export class Menu {
 
   cloeOthersModal() {
     this.settings.set(false);
+  }
+
+  constructor(private firestore: Firestore) {}
+
+  async saveTestDoc() {
+    try {
+      const docRef = await addDoc(collection(this.firestore, 'testCollection'), {
+        name: 'Adamu Salisu',
+        age: 25,
+        createdAt: new Date()
+      });
+      console.log('Document written with ID: ', docRef.id);
+    } catch (e) {
+      console.error('Error adding document: ', e);
+    }
   }
 }

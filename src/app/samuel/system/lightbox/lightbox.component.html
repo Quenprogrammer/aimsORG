@@ -1,0 +1,34 @@
+@if (isOpen) {
+  <div class="lightbox-overlay">
+    <div (click)="close()" style="height: 100vh; width: 100vw; position: absolute"></div>
+  <!--  <button (click)="close()" class="close">Close</button>-->
+    <button class=" btn btn-icon bg-black text-white rounded-circle close" (click)="close()">
+      <i class="bi-x-lg icon-lg"></i>
+    </button>
+
+
+    <div class="bg-black  px-3 pt-1 text-center count rounded-circle" >
+      <p class="text-white pt-2">{{currentImageIndex+1}}/ {{total()}}</p>
+    </div>
+    <button class=" btn btn-icon bg-black text-white rounded-circle previous"  (click)="prev()">
+      <i class="bi-arrow-left icon-lg"></i>
+    </button>
+
+
+    <button class=" btn btn-icon bg-black text-white rounded-circle next"   (click)="next()">
+      <i class="bi-arrow-right icon-lg"></i>
+    </button>
+
+
+
+
+    <div class="lightbox-container " >
+      @if (images[currentImageIndex].type === MediaType.photo) {
+        <img [src]="images[currentImageIndex].url" alt="Image">
+      }
+    </div>
+  </div>
+}
+
+
+

@@ -1,0 +1,148 @@
+<div class="mt-4">
+  <form [formGroup]="productForm" (ngSubmit)="saveProduct()">
+
+    <div formArrayName="specifications">
+      <div *ngFor="let spec of specs.controls; let i=index" [formGroupName]="i" class="mb-1">
+        <div class="card card-body mb-3 shadow-lg">
+          <div class="row g-2">
+            <!-- Specification Name -->
+            <div class="col-md-5">
+              <div class="position-relative mb-3">
+                <i class="ci-text position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+                <input formControlName="name"
+                       type="text"
+                       class="form-control form-icon-start"
+                       placeholder="Specification Name"
+                       [class.is-invalid]="spec.get('name')?.invalid && (spec.get('name')?.touched || spec.get('name')?.dirty)">
+                <div class="invalid-feedback" *ngIf="spec.get('name')?.invalid && (spec.get('name')?.touched || spec.get('name')?.dirty)">
+                  Specification name is required.
+                </div>
+              </div>
+            </div>
+
+            <!-- Specification Type -->
+            <div class="col-md-5">
+              <div class="position-relative mb-3">
+                <i class="ci-layers position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+                <select formControlName="type"
+                        class="form-control form-icon-start"
+                        [class.is-invalid]="spec.get('type')?.invalid && (spec.get('type')?.touched || spec.get('type')?.dirty)">
+                  <option value="">Select Type</option>
+                  <option value="dropdown">Dropdown</option>
+                  <option value="text">Text + Price</option>
+                  <option value="price">Price Only</option>
+                </select>
+                <div class="invalid-feedback" *ngIf="spec.get('type')?.invalid && (spec.get('type')?.touched || spec.get('type')?.dirty)">
+                  Please select a type.
+                </div>
+              </div>
+            </div>
+
+            <!-- Delete Spec -->
+            <div class="col-md-2">
+              <button type="button"
+                      (click)="removeSpec(i)"
+                      class="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center">
+                <i class="ci-trash me-2"></i>Delete
+              </button>
+            </div>
+          </div>
+
+          <!-- Dropdown Options -->
+          <div *ngIf="spec.get('type')?.value === 'dropdown'" formArrayName="options">
+            <div *ngFor="let opt of getOptionsControl(i).controls; let j=index" [formGroupName]="j">
+
+              <div class="row g-2">
+                <div class="col-md-5">
+                  <div class="position-relative mb-2">
+                    <i class="ci-list position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+                    <input formControlName="label"
+                           type="text"
+                           class="form-control form-icon-start"
+                           placeholder="Option Label"
+                           [class.is-invalid]="opt.get('label')?.invalid && (opt.get('label')?.touched || opt.get('label')?.dirty)">
+                    <div class="invalid-feedback" *ngIf="opt.get('label')?.invalid && (opt.get('label')?.touched || opt.get('label')?.dirty)">
+                      Option label is required.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="position-relative">
+                    <i class="ci-currency-dollar position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+                    <input formControlName="price"
+                           type="number"
+                           class="form-control form-icon-start"
+                           placeholder="Extra Price"
+                           [class.is-invalid]="opt.get('price')?.invalid && (opt.get('price')?.touched || opt.get('price')?.dirty)">
+                    <div class="invalid-feedback" *ngIf="opt.get('price')?.errors?.['nonZero']">
+                      Price must be greater than 0.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <button type="button"
+                          (click)="removeOption(i, j)"
+                          class="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center">
+                    <i class="ci-close-circle me-2"></i> Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+            <button type="button" (click)="addOption(i)" class="btn btn-sm btn-outline-success">
+              + Add Option
+            </button>
+          </div>
+
+          <!-- Text + Price -->
+          <div *ngIf="spec.get('type')?.value === 'text'">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="position-relative mb-3">
+                  <i class="ci-text position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+                  <input formControlName="customText"
+                         type="text"
+                         class="form-control form-icon-start"
+                         placeholder="Enter Text">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="position-relative mb-3">
+                  <i class="ci-currency-dollar position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+                  <input formControlName="extraPrice"
+                         type="number"
+                         class="form-control form-icon-start"
+                         placeholder="Extra Price"
+                         [class.is-invalid]="spec.get('extraPrice')?.invalid && (spec.get('extraPrice')?.touched || spec.get('extraPrice')?.dirty)">
+                  <div class="invalid-feedback" *ngIf="spec.get('extraPrice')?.errors?.['nonZero']">
+                    Extra price must be greater than 0.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Price Only -->
+          <div *ngIf="spec.get('type')?.value === 'price'">
+            <div class="position-relative mb-3">
+              <i class="ci-currency-dollar position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+              <input formControlName="extraPrice"
+                     type="number"
+                     class="form-control form-icon-start"
+                     placeholder="Extra Price"
+                     [class.is-invalid]="spec.get('extraPrice')?.invalid && (spec.get('extraPrice')?.touched || spec.get('extraPrice')?.dirty)">
+              <div class="invalid-feedback" *ngIf="spec.get('extraPrice')?.errors?.['nonZero']">
+                Price must be greater than 0.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <button type="button" (click)="addSpec()" class="btn btn-outline-primary me-2 btn-sm">
+      + Add Customization
+    </button>
+
+  </form>
+</div>
