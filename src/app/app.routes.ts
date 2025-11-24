@@ -44,6 +44,7 @@ import { Events } from './samuel/events/events';
 import {Unit} from './samuel/admin/unit';
 import { Post } from '../app/samuel/admin/post/post';
 import {UploadPost} from './samuel/admin/post/upload-post';
+import {Settings} from './samuel/admin/settings/settings';
 
 export const routes: Routes = [
   // Homepage
@@ -92,6 +93,7 @@ export const routes: Routes = [
   {path: 'adminUnit', loadComponent: () => import('../app/samuel/admin/users').then(c => Unit)},
   {path: 'adminPost', loadComponent: () => import('../app/samuel/admin/post/post').then(c => Post)},
   {path: 'adminPostUpload', loadComponent: () => import('../app/samuel/admin/post/post').then(c => UploadPost)},
+  {path: 'reportProblem', loadComponent: () => import('../app/samuel/admin/settings/settings').then(c => Settings)},
 
   // Fallback
   { path: '**', redirectTo: 'homepage' }

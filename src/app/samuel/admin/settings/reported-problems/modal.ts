@@ -4,17 +4,18 @@ import {Component, EventEmitter, Input, Output, signal} from '@angular/core';
 
 @Component({
   selector: 'app-modal',
+  standalone: true,
   imports: [],
   template: `
 
     <div  class="modal-overlay "  >
 
 
-      <div class="modal-content shadow-md" style="overflow: hidden;"  [style.max-width]="width" [style.max-height]="height" [style.background-color]="BackgroundColor" >
+      <div class="modal-content shadow-md" style="overflow: hidden;"  [style.width]="width" [style.height]="height" [style.background-color]="BackgroundColor" >
         <div class=" d-flex justify-content-end gap-2">
           <h4 class="card-header-title me-auto"  > {{header}}</h4>
 
-          <a class="btn btn-danger btn-md" (click)="close()">{{buttonText}}</a>
+          <a class="btn btn-ghost-danger btn-md" (click)="close()">{{buttonText}}</a>
 
         </div>
         <div class="card-bondy p-1">

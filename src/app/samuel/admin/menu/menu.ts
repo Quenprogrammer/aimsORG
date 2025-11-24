@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import {Component, signal} from '@angular/core';
 import {MenuCardHeader} from '../../system/menu-card-header/menu-card-header';
 import {RouterLink} from '@angular/router';
+import {Modal} from '../../system/modal';
+import {SystemInfoComponent} from '../../system/menu-card-header/system-info/system-info.component';
 
 @Component({
   selector: 'app-menu',
   imports: [
     MenuCardHeader,
-    RouterLink
+    RouterLink,
+    Modal,
+    SystemInfoComponent
   ],
   templateUrl: './menu.html',
   styleUrl: './menu.css',
@@ -21,14 +25,27 @@ export class Menu {
 
   ];
   exportData = [
-    { name: 'Users', icon: 'adminIcon/team.svg', link:'/adminUsers'  },
+    { name: 'Dashboard', icon: 'adminIcon/data-drive-flash-plug-usb-svgrepo-com.svg',link:'' },
     { name: 'Blog', icon: 'adminIcon/data-center-data-warehouse-svgrepo-com.svg',  link:'/adminPost'},
-    { name: 'Sales', icon: 'adminIcon/sales.svg' ,link:'' },
+    { name: 'Music', icon: 'adminIcon/data-center-data-warehouse-svgrepo-com.svg',  link:'/adminPost'},
+    { name: 'Videos', icon: 'adminIcon/data-center-data-warehouse-svgrepo-com.svg',  link:'/adminPost'},
+    { name: 'Photos', icon: 'adminIcon/data-center-data-warehouse-svgrepo-com.svg',  link:'/adminPost'},
+    { name: 'Users', icon: 'adminIcon/team.svg', link:'/adminUsers'  },
+     { name: 'Sales', icon: 'adminIcon/sales.svg' ,link:'' },
     { name: 'Events', icon: 'adminIcon/data-cluster-outline-badged-svgrepo-com.svg', link:'/adminEvent'  },
     { name: 'Reviews', icon: 'adminIcon/reviews.svg' ,link:'' },
     { name: 'Products', icon: 'adminIcon/data-database-eternet-server-storage-svgrepo-com.svg',link:'' },
     { name: 'Messages', icon: 'adminIcon/data-definition-details-svgrepo-com.svg',link:'/adminInbox' },
-    { name: 'Dashboard', icon: 'adminIcon/data-drive-flash-plug-usb-svgrepo-com.svg',link:'' },
-    { name: 'Settings', icon: 'adminIcon/settings.svg' ,link:''},
+     { name: 'Report issues', icon: 'adminIcon/problem.svg',link:'/reportIssues'  },
+
       ];
+
+  width2='900px'
+
+  height2='800px'
+  settings = signal(false);
+
+  cloeOthersModal() {
+    this.settings.set(false);
+  }
 }
