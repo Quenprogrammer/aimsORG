@@ -3,6 +3,7 @@ import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {DocCounterComponent} from '../../shared/collection-count/collection-count.component';
 import {ProductService} from '../../system/vendor/product.service';
+import {Header} from '../../shared/header/header';
 interface Product {
   id?: string;
   productID: string;
@@ -25,7 +26,7 @@ interface Product {
 @Component({
   selector: 'lh-products',
   standalone: true,
-  imports: [NgIf, NgFor, CommonModule, FormsModule, DocCounterComponent],
+  imports: [NgIf, NgFor, CommonModule, FormsModule, DocCounterComponent, Header],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
 })

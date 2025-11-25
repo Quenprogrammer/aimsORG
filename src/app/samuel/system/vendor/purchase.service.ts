@@ -1,8 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { UserContextService } from '../auth/user-context.service';
-
 
 export interface Purchase {
   id?: string;
@@ -16,18 +14,19 @@ export interface Purchase {
   category: string;
   date: string;
   license: string;
+  price: number; // NEW FIELD
 }
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class PurchaseService {
   private firestore = inject(Firestore);
-  private userContext = inject(UserContextService);
 
+  // 🔥 Changed path: now collection is simply "purchases"
   getPurchases(): Observable<Purchase[]> {
-    const docId = this.userContext.vendor();
-    const purchasesRef = collection(this.firestore, `vendors/${docId}/purchases`);
+    const purchasesRef = collection(this.firestore, 'purchases');
     return collectionData(purchasesRef, { idField: 'id' }) as Observable<Purchase[]>;
   }
 

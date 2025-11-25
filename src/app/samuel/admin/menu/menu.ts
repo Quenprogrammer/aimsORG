@@ -26,17 +26,21 @@ export class Menu {
 
   ];
   exportData = [
-    { name: 'Dashboard', icon: 'adminIcon/data-drive-flash-plug-usb-svgrepo-com.svg',link:'' },
-    { name: 'Blog', icon: 'adminIcon/data-center-data-warehouse-svgrepo-com.svg',  link:'/adminPost'},
-    { name: 'Music', icon: 'adminIcon/data-center-data-warehouse-svgrepo-com.svg',  link:'/adminPost'},
-    { name: 'Videos', icon: 'adminIcon/data-center-data-warehouse-svgrepo-com.svg',  link:'/adminPost'},
-    { name: 'Photos', icon: 'adminIcon/data-center-data-warehouse-svgrepo-com.svg',  link:'/adminPost'},
+    { name: 'Dashboard', icon: 'adminIcon/data-drive-flash-plug-usb-svgrepo-com.svg',link:'/adminDashboard' },
+    { name: 'Blog', icon: 'adminIcon/blog.svg',  link:'/adminPost'},
+    { name: 'Music', icon: 'adminIcon/mic.svg',  link:'/adminMusic'},
+    { name: 'Videos', icon: 'adminIcon/vid.svg',  link:'/adminVideos'},
+    { name: 'Photos', icon: 'adminIcon/pic.svg',  link:'/adminPicture'},
     { name: 'Users', icon: 'adminIcon/team.svg', link:'/adminUsers'  },
-     { name: 'Sales', icon: 'adminIcon/sales.svg' ,link:'' },
-    { name: 'Events', icon: 'adminIcon/data-cluster-outline-badged-svgrepo-com.svg', link:'/adminEvent'  },
+     { name: 'Sales', icon: 'adminIcon/sales.svg' ,link:'/adminSales' },
+    { name: 'Events', icon: 'adminIcon/data-cluster-outline-badged-svgrepo-com.svg', link:'/adminEvents'  },
     { name: 'Reviews', icon: 'adminIcon/reviews.svg' ,link:'' },
-    { name: 'Products', icon: 'adminIcon/data-database-eternet-server-storage-svgrepo-com.svg',link:'' },
+    { name: 'Purchase', icon: 'adminIcon/cash.svg' ,link:'/adminPurchase' },
+    { name: 'Payout', icon: 'adminIcon/trade.svg' ,link:'/adminPayout' },
+    { name: 'Favourite', icon: 'adminIcon/love.svg' ,link:'/adminFavourite' },
+    { name: 'Products', icon: 'adminIcon/data-database-eternet-server-storage-svgrepo-com.svg',link:'/adminProducts' },
     { name: 'Messages', icon: 'adminIcon/data-definition-details-svgrepo-com.svg',link:'/adminInbox' },
+    { name: 'Settings', icon: 'adminIcon/data-definition-details-svgrepo-com.svg',link:'/adminSettings' },
      { name: 'Report issues', icon: 'adminIcon/problem.svg',link:'/reportIssues'  },
 
       ];

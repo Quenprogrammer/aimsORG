@@ -1,15 +1,16 @@
-<div
-  data-filter-list='{"searchClass": "product-search", "listClass": "product-list", "sortClass": "product-sort", "valueNames": ["product","brand","collection","basePrice"]}'>
+<app-header [title]="'Products'" ></app-header>
+<div class="container">
+<div data-filter-list='{"searchClass": "product-search", "listClass": "product-list", "sortClass": "product-sort", "valueNames": ["product","brand","collection","basePrice"]}'>
 
   <!-- Header -->
   <div class="d-sm-flex align-items-center justify-content-between gap-3 pb-2 pb-sm-3 mb-md-2">
-    <h1 class="h2 text-nowrap mb-sm-0">Products</h1>
-    <div class="position-relative w-100" style="max-width: 300px">
+
+    <div class="position-relative w-100" style="max-width: 600px">
       <i class="ci-search position-absolute top-50 start-0 translate-middle-y ms-3"></i>
       <input [(ngModel)]="searchQuery" (input)="filterProducts()" type="search" class="product-search form-control form-icon-start rounded-pill" placeholder="Search">
     </div>
   </div>
-
+<div class="card card-body" style="height: 95vh">
   <!-- Loading -->
   <div *ngIf="loading()" class="py-5 text-center">
     <div class="spinner-border text-primary" role="status"></div>
@@ -71,16 +72,19 @@
     </tr>
     </tbody>
   </table>
+
 </div>
-<div class="d-flex align-items-center justify-content-between pt-4 flex-wrap gap-2">
-  <div class="fs-sm d-flex align-items-center flex-wrap gap-1">
-    <span>Showing</span>
-    <span class="fw-semibold">{{ products.length }}</span>
-    <span>of</span>
-    <span class="fw-semibold">
+  <div class="d-flex align-items-center justify-content-between py-3 flex-wrap gap-2">
+    <div class="fs-sm d-flex align-items-center flex-wrap gap-1">
+      <span>Showing</span>
+      <span class="fw-semibold">{{ products.length }}</span>
+      <span>of</span>
+      <span class="fw-semibold">
        </span>
-    <span class="d-none d-sm-inline">results</span>
+      <span class="d-none d-sm-inline">results</span>
+    </div>
   </div>
+
 </div>
 
 <!-- Grid View for Mobile -->
@@ -137,3 +141,4 @@
     </div>
   </ng-template>
 </ng-template>
+</div>

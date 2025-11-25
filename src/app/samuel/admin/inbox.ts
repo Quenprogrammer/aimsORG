@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Firestore, collection, collectionData, deleteDoc, doc } from '@angular/fire/firestore';
 import { AsyncPipe, CommonModule, DatePipe, NgForOf, NgIf } from '@angular/common';
 import { Observable } from 'rxjs';
+import {Header} from '../shared/header/header';
 
 interface ContactMessage {
   id?: string;
@@ -24,15 +25,15 @@ interface ContactMessage {
     NgForOf,
     DatePipe,
     NgIf,
-    CommonModule
+    CommonModule,
+    Header
   ],
   template: `
+    <app-header [title]="'Messages'" ></app-header>
     <div class="container">
       <div class="col">
         <div class="ps-lg-3 ps-xl-0">
 
-          <!-- Page title -->
-          <h1 class="h2 mb-1 mb-sm-2">Messages</h1>
 
           <!-- Messages list -->
           <div *ngFor="let message of messages$ | async; let i = index" class="border-bottom py-4">
@@ -44,13 +45,15 @@ interface ContactMessage {
                 <h2 class="h6 mb-0">
                   {{ getSenderName(message) }}
                   <small class="text-muted d-block fs-sm fw-normal">{{ message.email }}</small>
+                  <p class=" fs-xs mt-1">
+                    {{ message.timestamp?.toDate() | date: 'medium' }}
+                  </p>
                 </h2>
+
                 <span class="badge text-bg-info rounded-pill" [class.text-bg-warning]="message.type === 'retailer'">
               {{ message.type === 'customer' ? 'Customer' : 'Retailer' }}
             </span>
-                <span class="badge text-bg-secondary rounded-pill fs-xs">
-              {{ message.timestamp?.toDate() | date: 'medium' }}
-            </span>
+
               </div>
 
               <div class="d-flex align-items-center gap-2">

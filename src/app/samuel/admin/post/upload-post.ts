@@ -9,88 +9,80 @@ import { NgForOf } from '@angular/common';
     NgForOf
   ],
   template: `
-    <div class="container mt-5">
-      <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">
-          <h4>Upload Post</h4>
-        </div>
-        <div class="card-body">
-          <form [formGroup]="postForm" (ngSubmit)="submitForm()" enctype="multipart/form-data">
+    <form [formGroup]="postForm" (ngSubmit)="submitForm()" enctype="multipart/form-data">
 
-            <!-- Title -->
-            <div class="mb-3">
-              <label class="form-label">Post Title</label>
-              <input formControlName="title" type="text" class="form-control" />
-            </div>
-
-            <!-- Description -->
-            <div class="mb-3">
-              <label class="form-label">Description</label>
-              <textarea formControlName="description" class="form-control"></textarea>
-            </div>
-
-            <!-- Category -->
-            <div class="mb-3">
-              <label class="form-label">Blog Category</label>
-              <select formControlName="category" class="form-select">
-                <option value="">Select Category</option>
-                <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
-              </select>
-            </div>
-
-            <!-- Date -->
-            <div class="mb-3">
-              <label class="form-label">Date</label>
-              <input formControlName="date" type="text" class="form-control"  />
-            </div>
-
-            <!-- Main File -->
-            <div class="mb-3">
-              <label class="form-label">Main File (Optional)</label>
-              <input type="file" class="form-control" (change)="onMainFileSelected($event)" />
-            </div>
-
-            <!-- Links -->
-            <div class="mb-3">
-              <label class="form-label">Links</label>
-              <div *ngFor="let link of links.controls; let i = index"
-                   [formGroup]="$any(link)"
-                   class="d-flex mb-2">
-                <input formControlName="url" type="text" class="form-control me-2" placeholder="Enter URL" />
-                <button type="button" class="btn btn-danger" (click)="removeLink(i)">Remove</button>
-              </div>
-              <button type="button" class="btn btn-primary mt-1" (click)="addLink()">Add Link</button>
-            </div>
-
-            <!-- Sections -->
-            <div class="mb-3">
-              <label class="form-label">Sections</label>
-              <div *ngFor="let section of sections.controls; let i = index"
-                   [formGroup]="$any(section)"
-                   class="border p-3 mb-2">
-                <div class="mb-2">
-                  <label class="form-label">Section Title</label>
-                  <input formControlName="title" type="text" class="form-control" />
-                </div>
-                <div class="mb-2">
-                  <label class="form-label">Section Details</label>
-                  <textarea formControlName="details" class="form-control"></textarea>
-                </div>
-                <div class="mb-2">
-                  <label class="form-label">Section Image (Optional)</label>
-                  <input type="file" class="form-control" (change)="onSectionImageSelected($event, i)" />
-                </div>
-                <button type="button" class="btn btn-danger" (click)="removeSection(i)">Remove Section</button>
-              </div>
-              <button type="button" class="btn btn-primary mt-1" (click)="addSection()">Add Section</button>
-            </div>
-
-            <!-- Submit -->
-            <button type="submit" class="btn btn-success">Submit Post</button>
-          </form>
-        </div>
+      <!-- Title -->
+      <div class="mb-3">
+        <label class="form-label">Post Title</label>
+        <input formControlName="title" type="text" class="form-control" />
       </div>
-    </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea formControlName="description" class="form-control"></textarea>
+      </div>
+
+      <!-- Category -->
+      <div class="mb-3">
+        <label class="form-label">Blog Category</label>
+        <select formControlName="category" class="form-select">
+          <option value="">Select Category</option>
+          <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+        </select>
+      </div>
+
+      <!-- Date -->
+      <div class="mb-3">
+        <label class="form-label">Date</label>
+        <input formControlName="date" type="text" class="form-control"  />
+      </div>
+
+      <!-- Main File -->
+      <div class="mb-3">
+        <label class="form-label">Main File (Optional)</label>
+        <input type="file" class="form-control" (change)="onMainFileSelected($event)" />
+      </div>
+
+      <!-- Links -->
+      <div class="mb-3">
+        <label class="form-label">Links</label>
+        <div *ngFor="let link of links.controls; let i = index"
+             [formGroup]="$any(link)"
+             class="d-flex mb-2">
+          <input formControlName="url" type="text" class="form-control me-2" placeholder="Enter URL" />
+          <button type="button" class="btn btn-danger" (click)="removeLink(i)">Remove</button>
+        </div>
+        <button type="button" class="btn btn-primary mt-1" (click)="addLink()">Add Link</button>
+      </div>
+
+      <!-- Sections -->
+      <div class="mb-3">
+        <label class="form-label">Sections</label>
+        <div *ngFor="let section of sections.controls; let i = index"
+             [formGroup]="$any(section)"
+             class="border p-3 mb-2">
+          <div class="mb-2">
+            <label class="form-label">Section Title</label>
+            <input formControlName="title" type="text" class="form-control" />
+          </div>
+          <div class="mb-2">
+            <label class="form-label">Section Details</label>
+            <textarea formControlName="details" class="form-control"></textarea>
+          </div>
+          <div class="mb-2">
+            <label class="form-label">Section Image (Optional)</label>
+            <input type="file" class="form-control" (change)="onSectionImageSelected($event, i)" />
+          </div>
+          <button type="button" class="btn btn-danger" (click)="removeSection(i)">Remove Section</button>
+        </div>
+        <button type="button" class="btn btn-primary mt-1" (click)="addSection()">Add Section</button>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="btn btn-success">Submit Post</button>
+    </form>
+
   `,
   styles: ``
 })

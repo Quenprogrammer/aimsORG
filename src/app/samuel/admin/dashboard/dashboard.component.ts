@@ -8,6 +8,7 @@ import { RecentSalesComponent } from './recent-sales/recent-sales.component';
 
 import {SelectComponent} from '../../shared/select/select.component';
 import {DocCounterComponent} from '../../shared/collection-count/collection-count.component';
+import {Header} from '../../shared/header/header';
 
 
 @Component({
@@ -21,6 +22,8 @@ import {DocCounterComponent} from '../../shared/collection-count/collection-coun
     DashboardStatsComponent,
     RecentSalesComponent,
     DocCounterComponent,
+    Header,
+
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',

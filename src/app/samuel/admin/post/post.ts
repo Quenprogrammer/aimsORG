@@ -1,32 +1,38 @@
-import { Component } from '@angular/core';
+import {Component, signal} from '@angular/core';
+import {Modal} from '../../system/modal';
+import {NgIf} from '@angular/common';
+import {UploadPost} from './upload-post';
+import {Header} from '../../shared/header/header';
 
 @Component({
   selector: 'app-post',
-  imports: [],
+  imports: [
+    Modal,
+    NgIf,
+    UploadPost,
+    Header
+  ],
   template: `
 
 
 
     <main class="content-wrapper">
 
-
+      <app-header [title]="'Blog Post'"></app-header>
       <section class="container mt-3 pb-5 mb-2 mb-md-3 mb-lg-4 mb-xl-5">
 
         <div class="w-md-75 w-lg-50 text-center mx-md-auto">
-          <h1 class="display-4">Newsroom</h1>
+
           <p class="lead">Latest updates and Hand-picked resources.</p>
         </div>
 
         <div class="row justify-content-md-between align-items-md-center mb-7">
           <div class="col-md-5 mb-5 mb-md-0">
             <!-- Tags -->
-            <div class="d-md-flex align-items-md-center text-center text-md-start">
-              <span class="d-block me-md-3 mb-2 mb-md-1">Tags:</span>
-              <a class="btn btn-soft-secondary btn-xs rounded-pill m-1" href="javascript:;">Business</a>
-              <a class="btn btn-soft-secondary btn-xs rounded-pill m-1" href="javascript:;">Health</a>
-              <a class="btn btn-soft-secondary btn-xs rounded-pill m-1" href="javascript:;">Environment</a>
-              <a class="btn btn-soft-secondary btn-xs rounded-pill m-1" href="javascript:;">Adventure</a>
-            </div>
+            <div class="d-md-flex align-items-md-center   text-md-start">
+
+              <button class="btn btn-primary mb-3" (click)="this.modal.set(true)">Upload Blog</button>
+                  </div>
             <!-- End Tags -->
           </div>
           <!-- End Col -->
@@ -44,8 +50,9 @@ import { Component } from '@angular/core';
           <!-- End Col -->
         </div>
       </section>
-      <!-- Posts list + Sidebar -->
+
       <section class="container pb-5 mb-2 mb-md-3 mb-lg-4 mb-xl-5">
+
         <div class="row">
 
           <!-- Posts list -->
@@ -113,10 +120,30 @@ import { Component } from '@angular/core';
 
       <!-- Video reviews -->
     </main>
+    <div class="modal-overlay" *ngIf="modal()">
+      <app-modal [width]="'600px'" [height]="'600px'" (closeModal)="closeModal()">
+        <div class="shadow-none">
+          <div class="modal-content">
+            <div class=" mb-7">
+              <div class="card h-100 shadow-none border-0">
+                <div class="p-1 pb-0" style="height: 500px; overflow-y: scroll">
 
+               <app-upload-post></app-upload-post>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </app-modal>
+    </div>
   `,
   styles:``
 })
 export class Post {
-
+  modal = signal(false);
+  closeModal() {
+    this.modal.set(false);
+  }
 }

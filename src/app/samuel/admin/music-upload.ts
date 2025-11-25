@@ -1,180 +1,331 @@
-import { Component } from '@angular/core';
+import {Component, signal} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import {NgForOf, NgIf} from '@angular/common';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 import { Storage, ref, uploadBytesResumable, getDownloadURL } from '@angular/fire/storage';
+import {Modal} from '../system/modal';
+import {Header} from '../shared/header/header';
 
 @Component({
   selector: 'app-music-upload',
   standalone: true,
-  imports: [ReactiveFormsModule, NgForOf, NgIf],
+  imports: [ReactiveFormsModule, NgForOf, NgIf, Modal, Header],
   template: `
-    <div class="container-fluid">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-        <div class="col mb-3 mb-lg-5">
-          <!-- Card -->
-          <div class="card card-sm card-hover-shadow card-header-borderless h-100 text-center">
-            <div class="card-header card-header-content-between border-0">
-              <span class="small">25kb</span>
-
-              <!-- Dropdown -->
-              <div class="dropdown">
-                <button type="button" class="btn btn-ghost-secondary btn-icon btn-sm card-dropdown-btn rounded-circle" id="filesGridDropdown1" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="bi-three-dots-vertical"></i>
-                </button>
-
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="filesGridDropdown1" style="min-width: 13rem;">
-                  <span class="dropdown-header">Settings</span>
-
-                  <a class="dropdown-item" href="#">
-                    <i class="bi-share dropdown-item-icon"></i> Share file
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="bi-folder-plus dropdown-item-icon"></i> Move to
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="bi-star dropdown-item-icon"></i> Add to stared
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="bi-pencil dropdown-item-icon"></i> Rename
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="bi-download dropdown-item-icon"></i> Download
-                  </a>
-
-                  <div class="dropdown-divider"></div>
-
-                  <a class="dropdown-item" href="#">
-                    <i class="bi-chat-left-dots dropdown-item-icon"></i> Report
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="bi-trash dropdown-item-icon"></i> Delete
-                  </a>
-                </div>
-              </div>
-              <!-- End Dropdown -->
-            </div>
-
-            <div class="card-body">
-              <img class="avatar avatar-4x3" src="adminIcon/video-frame-play-horizontal-svgrepo-com.svg" alt="Image Description" style="width: 80px; height: 80px">
-            </div>
-
-            <div class="card-body">
-              <h5 class="card-title">WordPress contract terms</h5>
-              <p class="small">Updated 50 min ago</p>
-            </div>
-
-            <a class="stretched-link" href="#"></a>
-          </div>
-          <!-- End Card -->
+    <app-header></app-header>
+    <h1 class="h3 container mb-4">My songs </h1>
+    <div class="border rounded p-3 p-lg-4">
+      <div class="d-flex align-items-center mb-3">
+        <div class="ratio ratio-1x1 flex-shrink-0" style="width: 110px">
+          <img src="adminIcon/music-notes-svgrepo-com.svg" width="110" alt="iPhone 14">
         </div>
-        <div class="col mb-3 mb-lg-5">
-          <!-- Card -->
-          <div class="card card-sm card-hover-shadow card-header-borderless h-100 text-center">
-            <div class="card-header card-header-content-between border-0">
-              <span class="small">25kb</span>
-
-              <!-- Dropdown -->
-              <div class="dropdown">
-                <button type="button" class="btn btn-ghost-secondary btn-icon btn-sm card-dropdown-btn rounded-circle" id="filesGridDropdown1" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="bi-three-dots-vertical"></i>
-                </button>
-
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="filesGridDropdown1" style="min-width: 13rem;">
-                  <span class="dropdown-header">Settings</span>
-
-                  <a class="dropdown-item" href="#">
-                    <i class="bi-share dropdown-item-icon"></i> Share file
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="bi-folder-plus dropdown-item-icon"></i> Move to
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="bi-star dropdown-item-icon"></i> Add to stared
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="bi-pencil dropdown-item-icon"></i> Rename
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="bi-download dropdown-item-icon"></i> Download
-                  </a>
-
-                  <div class="dropdown-divider"></div>
-
-                  <a class="dropdown-item" href="#">
-                    <i class="bi-chat-left-dots dropdown-item-icon"></i> Report
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="bi-trash dropdown-item-icon"></i> Delete
-                  </a>
-                </div>
-              </div>
-              <!-- End Dropdown -->
+        <div class="w-100 min-w-0 ps-2 ps-sm-3">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <div class="d-flex gap-1 fs-xs">
+              <i class="ci-star-filled text-warning"></i>
+              <i class="ci-star-filled text-warning"></i>
+              <i class="ci-star-filled text-warning"></i>
+              <i class="ci-star-filled text-warning"></i>
+              <i class="ci-star text-body-tertiary opacity-75"></i>
             </div>
-
-            <div class="card-body">
-              <img class="avatar avatar-4x3" src="adminIcon/music-notes-svgrepo-com.svg" alt="Image Description" style="width: 80px; height: 80px">
-            </div>
-
-            <div class="card-body">
-              <h5 class="card-title">WordPress contract terms</h5>
-              <p class="small">Updated 50 min ago</p>
-            </div>
-
-            <a class="stretched-link" href="#"></a>
+            <span class="text-body-tertiary fs-xs">68</span>
           </div>
-          <!-- End Card -->
+          <h4 class="fs-sm fw-medium mb-2">Explore more music</h4>
+          <div class="h5 mb-0">Global stream</div>
         </div>
+      </div>
+      <div class="d-flex gap-2 gap-lg-3">
+        <button href="https://open.spotify.com/" type="button" class="btn btn-success w-100 animate-slide-end">
+          <i class="ci-shopping-cart fs-base animate-target ms-n1 me-2"></i>
+    Spotify
+        </button>
+        <button (click)="this.modal.set(true)"  type="button" class="btn btn-danger w-100 animate-slide-end">
+          <i class="ci-shopping-cart fs-base animate-target ms-n1 me-2"></i>
+ Upload Music
+        </button>
 
       </div>
     </div>
-    <div class="container mt-5">
-      <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">
-          <h4>Upload Music</h4>
+    <section class="container pt-5 mt-1 mt-sm-2 mt-md-3 mt-lg-4">
+
+      <div class="row">
+
+        <!-- Banner -->
+        <div class="col-lg-4" data-bs-theme="dark">
+          <div class="d-flex flex-column align-items-center justify-content-end h-100 text-center overflow-hidden rounded-5 px-4 px-lg-3 pt-4 pb-5" style="background: #1d2c41 url(assets/img/home/electronics/banner/background.jpg) center/cover no-repeat">
+            <div class="ratio animate-up-down position-relative z-2 me-lg-4" style="max-width: 320px; margin-bottom: -19%; --cz-aspect-ratio: calc(690 / 640 * 100%)">
+              <img src="adminIcon/img.png" alt="Laptop">
+            </div>
+            <h3 class="display-2 mb-2 mt-4">BoomPlayer</h3>
+            <p class="text-body fw-medium mb-4">Be Pro Anywhere</p>
+            <a class="btn btn-sm btn-primary" href="https://www.boomplay.com/">
+              From $1,199
+              <i class="ci-arrow-up-right fs-base ms-1 me-n1"></i>
+            </a>
+          </div>
         </div>
-        <div class="card-body">
-          <form [formGroup]="musicForm" (ngSubmit)="onSubmit()">
 
-            <div class="mb-3">
-              <label class="form-label">Title</label>
-              <input type="text" formControlName="title" class="form-control" placeholder="Song title">
+        <!-- Product list -->
+        <div class="col-sm-6 col-lg-4 d-flex flex-column gap-3 pt-4 py-lg-4">
+
+          <!-- Item -->
+          <div class="position-relative animate-underline d-flex align-items-center ps-xl-3">
+            <div class="ratio ratio-1x1 flex-shrink-0" style="width: 110px">
+              <img src="assets/img/shop/electronics/thumbs/01.png" alt="Smart Watch">
             </div>
-
-            <div class="mb-3">
-              <label class="form-label">Artist</label>
-              <input type="text" formControlName="artist" class="form-control" placeholder="Artist name">
+            <div class="w-100 min-w-0 ps-2 ps-sm-3">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <div class="d-flex gap-1 fs-xs">
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                </div>
+                <span class="text-body-tertiary fs-xs">45</span>
+              </div>
+              <h4 class="mb-2">
+                <a class="stretched-link d-block fs-sm fw-medium text-truncate" href="shop-product-general-electronics.html">
+                  <span class="animate-target">Smart Watch Series 7, White</span>
+                </a>
+              </h4>
+              <div class="h5 mb-0">$449.00</div>
             </div>
+          </div>
 
-            <div class="mb-3">
-              <label class="form-label">Album</label>
-              <input type="text" formControlName="album" class="form-control" placeholder="Album name (optional)">
+          <!-- Item -->
+          <div class="position-relative animate-underline d-flex align-items-center ps-xl-3">
+            <div class="ratio ratio-1x1 flex-shrink-0" style="width: 110px">
+              <img src="assets/img/shop/electronics/thumbs/03.png" width="110" alt="VR Glasses">
             </div>
-
-            <div class="mb-3">
-              <label class="form-label">Genre</label>
-              <select formControlName="genre" class="form-select">
-                <option value="">Select Genre</option>
-                <option *ngFor="let g of genres" [value]="g">{{ g }}</option>
-              </select>
+            <div class="w-100 min-w-0 ps-2 ps-sm-3">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <div class="d-flex gap-1 fs-xs">
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-half text-warning"></i>
+                  <i class="ci-star text-body-tertiary opacity-75"></i>
+                </div>
+                <span class="text-body-tertiary fs-xs">123</span>
+              </div>
+              <h4 class="mb-2">
+                <a class="stretched-link d-block fs-sm fw-medium text-truncate" href="shop-product-general-electronics.html">
+                  <span class="animate-target">VRB01 Virtual Reality Glasses</span>
+                </a>
+              </h4>
+              <div class="h5 mb-0">$340.99</div>
             </div>
+          </div>
 
-            <div class="mb-3">
-              <label class="form-label">Release Date</label>
-              <input type="date" formControlName="releaseDate" class="form-control">
+          <!-- Item -->
+          <div class="position-relative animate-underline d-flex align-items-center ps-xl-3">
+            <div class="ratio ratio-1x1 flex-shrink-0" style="width: 110px">
+              <img src="assets/img/shop/electronics/thumbs/05.png" width="110" alt="Bluetooth Headphones">
             </div>
-
-            <div class="mb-3">
-              <label class="form-label">Music File</label>
-              <input type="file" class="form-control" (change)="onFileChange($event)" accept="audio/*">
+            <div class="w-100 min-w-0 ps-2 ps-sm-3">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <div class="d-flex gap-1 fs-xs">
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star text-body-tertiary opacity-75"></i>
+                </div>
+                <span class="text-body-tertiary fs-xs">34</span>
+              </div>
+              <h4 class="mb-2">
+                <a class="stretched-link d-block fs-sm fw-medium text-truncate" href="shop-product-general-electronics.html">
+                  <span class="animate-target">Wireless Bluetooth Headphones Sony</span>
+                </a>
+              </h4>
+              <div class="h5 mb-0">$357.00</div>
             </div>
+          </div>
 
-            <button type="submit" class="btn btn-success" [disabled]="musicForm.invalid || uploading">Upload</button>
-            <span *ngIf="uploading" class="ms-2">Uploading...</span>
+          <!-- Item -->
+          <div class="position-relative animate-underline d-flex align-items-center ps-xl-3">
+            <div class="ratio ratio-1x1 flex-shrink-0" style="width: 110px">
+              <img src="assets/img/shop/electronics/thumbs/07.png" width="110" alt="MacBook">
+            </div>
+            <div class="w-100 min-w-0 ps-2 ps-sm-3">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <div class="d-flex gap-1 fs-xs">
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                </div>
+                <span class="text-body-tertiary fs-xs">34</span>
+              </div>
+              <h4 class="mb-2">
+                <a class="stretched-link d-block fs-sm fw-medium text-truncate" href="shop-product-general-electronics.html">
+                  <span class="animate-target">Laptop Apple MacBook Pro 13 M2</span>
+                </a>
+              </h4>
+              <div class="h5 mb-0">$1,200.00</div>
+            </div>
+          </div>
+        </div>
 
-          </form>
+        <!-- Product list -->
+        <div class="col-sm-6 col-lg-4 d-flex flex-column gap-3 pt-3 py-lg-4">
+
+          <!-- Item -->
+          <div class="position-relative animate-underline d-flex align-items-center ps-xl-3">
+            <div class="ratio ratio-1x1 flex-shrink-0" style="width: 110px">
+              <img src="assets/img/shop/electronics/thumbs/02.png" width="110" alt="iPad Pro">
+            </div>
+            <div class="w-100 min-w-0 ps-2 ps-sm-3">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <div class="d-flex gap-1 fs-xs">
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star text-body-tertiary opacity-75"></i>
+                </div>
+                <span class="text-body-tertiary fs-xs">126</span>
+              </div>
+              <h4 class="mb-2">
+                <a class="stretched-link d-block fs-sm fw-medium text-truncate" href="shop-product-general-electronics.html">
+                  <span class="animate-target">Tablet Apple iPad Air M1</span>
+                </a>
+              </h4>
+              <div class="h5 mb-0">$540.00</div>
+            </div>
+          </div>
+
+          <!-- Item -->
+          <div class="position-relative animate-underline d-flex align-items-center ps-xl-3">
+            <div class="ratio ratio-1x1 flex-shrink-0" style="width: 110px">
+              <img src="assets/img/shop/electronics/thumbs/04.png" width="110" alt="AirPods 2 Pro">
+            </div>
+            <div class="w-100 min-w-0 ps-2 ps-sm-3">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <div class="d-flex gap-1 fs-xs">
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                </div>
+                <span class="text-body-tertiary fs-xs">340</span>
+              </div>
+              <h4 class="mb-2">
+                <a class="stretched-link d-block fs-sm fw-medium text-truncate" href="shop-product-general-electronics.html"><span class="animate-target">Headphones Apple AirPods 2 Pro</span></a>
+              </h4>
+              <div class="h5 mb-0">$209.99 <del class="text-body-tertiary fs-sm fw-normal">$356.00</del></div>
+            </div>
+          </div>
+
+          <!-- Item -->
+          <div class="position-relative animate-underline d-flex align-items-center ps-xl-3">
+            <div class="ratio ratio-1x1 flex-shrink-0" style="width: 110px">
+              <img src="assets/img/shop/electronics/thumbs/06.png" width="110" alt="Power Bank">
+            </div>
+            <div class="w-100 min-w-0 ps-2 ps-sm-3">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <div class="d-flex gap-1 fs-xs">
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star text-body-tertiary opacity-75"></i>
+                </div>
+                <span class="text-body-tertiary fs-xs">29</span>
+              </div>
+              <h4 class="mb-2">
+                <a class="stretched-link d-block fs-sm fw-medium text-truncate" href="shop-product-general-electronics.html">
+                  <span class="animate-target">Power Bank PBS 10000 mAh Black</span>
+                </a>
+              </h4>
+              <div class="h5 mb-0">$49.99</div>
+            </div>
+          </div>
+
+          <!-- Item -->
+          <div class="position-relative animate-underline d-flex align-items-center ps-xl-3">
+            <div class="ratio ratio-1x1 flex-shrink-0" style="width: 110px">
+              <img src="assets/img/shop/electronics/thumbs/08.png" width="110" alt="iPhone 14">
+            </div>
+            <div class="w-100 min-w-0 ps-2 ps-sm-3">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <div class="d-flex gap-1 fs-xs">
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                  <i class="ci-star-filled text-warning"></i>
+                </div>
+                <span class="text-body-tertiary fs-xs">12</span>
+              </div>
+              <h4 class="mb-2">
+                <a class="stretched-link d-block fs-sm fw-medium text-truncate" href="shop-product-general-electronics.html">
+                  <span class="animate-target">Apple iPhone 14 128GB White</span>
+                </a>
+              </h4>
+              <div class="h5 mb-0">$899.00 <del class="text-body-tertiary fs-sm fw-normal">$958.00</del></div>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
+  <div class="modal-overlay" *ngIf="modal()">
+      <app-modal [width]="'600px'" [height]="'600px'" (closeModal)="closeModal()">
+        <div class="shadow-none">
+          <div class="modal-content">
+            <div class=" mb-7">
+              <div class="card h-100 shadow-none border-0">
+                <div class="p-1 pb-0" style="height: 500px; overflow-y: scroll">
+
+                  <form [formGroup]="musicForm" (ngSubmit)="onSubmit()">
+
+                    <div class="mb-3">
+                      <label class="form-label">Title</label>
+                      <input type="text" formControlName="title" class="form-control" placeholder="Song title">
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">Artist</label>
+                      <input type="text" formControlName="artist" class="form-control" placeholder="Artist name">
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">Album</label>
+                      <input type="text" formControlName="album" class="form-control" placeholder="Album name (optional)">
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">Genre</label>
+                      <select formControlName="genre" class="form-select">
+                        <option value="">Select Genre</option>
+                        <option *ngFor="let g of genres" [value]="g">{{ g }}</option>
+                      </select>
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">Release Date</label>
+                      <input type="date" formControlName="releaseDate" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">Music File</label>
+                      <input type="file" class="form-control" (change)="onFileChange($event)" accept="audio/*">
+                    </div>
+
+                    <button type="submit" class="btn btn-success" [disabled]="musicForm.invalid || uploading">Upload</button>
+                    <span *ngIf="uploading" class="ms-2">Uploading...</span>
+
+                  </form>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </app-modal>
     </div>
   `,
 })
@@ -257,5 +408,9 @@ export class MusicUpload {
       console.error('Error uploading music:', err);
       this.uploading = false;
     }
+  }
+  modal = signal(false);
+  closeModal() {
+    this.modal.set(false);
   }
 }

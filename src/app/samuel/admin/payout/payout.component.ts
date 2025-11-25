@@ -6,6 +6,7 @@ import {Modal} from '../../system/modal';
 import {LoadingComponent} from '../../shared/loading/loading.component';
 import {NoDocumentComponent} from '../../shared/no-document/no-document.component';
 import {Payout, PayoutService} from '../../system/payout.service';
+import {Header} from '../../shared/header/header';
 
 @Component({
   selector: 'lh-payout',
@@ -19,6 +20,7 @@ import {Payout, PayoutService} from '../../system/payout.service';
     NoDocumentComponent,
     CurrencyPipe,
     FormsModule,
+    Header,
   ],
   templateUrl: './payout.component.html',
   styleUrl: './payout.component.scss',

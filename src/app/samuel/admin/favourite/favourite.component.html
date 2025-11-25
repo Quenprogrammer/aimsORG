@@ -1,12 +1,9 @@
+<app-header [title]="'Favourites'" ></app-header>
+<div class="container">
 <div class="ps-lg-3 ps-xl-0">
-  <div class="row align-items-center pb-3 pb-md-4 mb-md-1 mb-lg-2">
-    <div class="col-md-4 col-xl-6 mb-3 mb-md-0">
-      <h1 class="h2 me-3 mb-0">Favourites</h1>
-    </div>
-  </div>
 
   <!-- Loading -->
-  <div *ngIf="loading()" class="text-center py-5">
+  <div *ngIf="loading()" class="text-center py-1">
     <lh-loading [message]="'Loading favourite products...'"></lh-loading>
   </div>
 
@@ -16,8 +13,8 @@
   </div>
 
   <!-- Empty Message -->
-  <div *ngIf="!loading() && products().length === 0 && !error()" class="text-center py-5 text-muted">
-    <div class="card border-2   shadow-lg" style="border-radius: 20px;height: 550px">
+  <div *ngIf="!loading() && products().length === 0 && !error()" class="text-center py-1 text-muted">
+    <div class="card border-2  mb-3 shadow-lg" style="border-radius: 20px;height: 95vh">
       <div class="card-body d-flex flex-column justify-content-center align-items-center   text-center">
         <lh-no-document></lh-no-document>
       </div>
@@ -70,6 +67,7 @@
 
     </div>
   </div>
+</div>
 </div>
 
 

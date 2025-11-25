@@ -7,6 +7,7 @@ import {SelectComponent} from '../../shared/select/select.component';
 import {NoDocumentComponent} from '../../shared/no-document/no-document.component';
 import {LoadingComponent} from '../../shared/loading/loading.component';
 import {UserContextService} from '../../system/auth/user-context.service';
+import {Header} from '../../shared/header/header';
 
 
 // Product Interface
@@ -33,6 +34,7 @@ export interface Product {
     NgIf,
     NoDocumentComponent,
     LoadingComponent,
+    Header,
   ],
   templateUrl: './favourite.component.html',
   styleUrls: ['./favourite.component.scss'],

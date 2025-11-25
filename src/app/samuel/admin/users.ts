@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Firestore, collection, collectionData, doc, deleteDoc, updateDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { AsyncPipe, CommonModule } from '@angular/common';
+import {Header} from '../shared/header/header';
 
 interface User {
   id?: string;
@@ -17,15 +18,16 @@ interface User {
 
 @Component({
   selector: 'app-users',
-  imports: [AsyncPipe, CommonModule],
+  imports: [AsyncPipe, CommonModule, Header],
   template: `
-    <div class="container mt-5">
+    <app-header [title]="'Users'"></app-header>
+    <div class=" p-1 p-md-3 ">
 
 
 
 
         <div  >
-          <h2 class="mb-4">Users</h2>
+
 
           <div class="table-responsive">
             <table class="table table-striped table-hover align-middle">
